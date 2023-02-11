@@ -1,0 +1,303 @@
+
+OOPs Concepts
+Why OOPs is importanat ? 
+	OOP is faster and easier to execute. 
+	OOP provides a clear structure for the programs. 
+	OOP helps to keep the C# code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug.
+	OOP makes it possible to create full reusable applications with less code and shorter development time.
+	
+------------------------------------------------------------------------------------------------------------------	
+	
+MVC Interview QNA :::		
+https://codecompiled.com/mvc-interview-questions-and-answers-for-experienced
+		
+------------------------------------------------------------------------------------------------------------------		
+What is MVC :		
+	MVC (full form Model View Controller)is a software architecture or application design model containing 3 interconnected verticals or portions. These 3 portions are the model (data associated with the application), the view (which is the user interface of an MVC application), and the controller (the processes that are responsible for handling the input).
+
+	The MVC model is normally used to develop modern applications with user interfaces. It provides the central pieces for designing a desktop or mobile application, as well as modern web applications.
+
+Model : 
+	A model can be defined as the data that will be used by the program. Commonly used examples of models in MVC are the database, a simple object holding data (such as any multimedia file or the character of a game), a file, etc.
+
+View :
+	A view is a way of displaying objects (user interfaces) within an application. This is the particular vertical through which end users will communicate.
+
+Controller :
+	A controller is the third vertical which is responsible for updating both models and views. It accepts input from users as well as performs the equivalent update. In other words, it is the controller which is responsible for responding to user actions.	
+
+partial view of MVC?
+	A partial view can be defined as a portion of HTML that is carefully injected into an existing DOM. Partial views are commonly implemented for componentizing Razor views, making them simpler to build and update. Controller methods can also directly return the partial views.
+	
+MVC Extension Methods :
+	Extension methods are static methods, that are always implemented in a static class. They don’t need a class object, they can be directly called. 
+	In C# we already have some built-in extension methods like Union, Where and Zip. These extension methods need a System.Linq namespace declaration.
+	
+	https://www.c-sharpcorner.com/UploadFile/97fc7a/extension-helpers-method-in-mvc/
+		
+Html.Partial() vs Html.RenderPartial()
+	Html.Partial returns html string.	
+	Html.RenderPartial returns void.
+	
+	Html.Partial injects the html string of the partial view into the main view.
+	Html.RenderPartial writes html in the response stream
+	
+	Performance is slow.
+	Perform is faster compared with HtmlPartial().
+	
+	Html.Partial() need not to be inside the braces. - @Html.Partial("ViewName")
+	Html.RenderPartial must be inside braces @{ }.	 - @{ Html.RenderPartial("ViewName");  }	
+	
+Html.Action() vs Html.RenderAction()
+	This Html.Action renders partial view as an HTML string so we can store it in another string variable. It is string return type method so first it returns result as a string then renders result to response.
+	
+	This is also same as Html.Action but main difference is that it renders result directly to response that’s why it is more efficient if the action returns a large amount of HTML over @Html.Action.
+	
+	@Html.Action("EmployeeLogin")  
+	@{Html.RenderAction("EmployeeRegistration");}  
+	
+Routing : 
+	MVC routing can be defined as a pattern-matching scheme that is used for mapping incoming requests of browsers to a definite MVC controller action.
+	
+	Two Type of Routing : Convensional base routing and Attribute base routing
+	
+	Convensional base routing : RouteConfig.RegisterRoutes(RouteTable.Routes);
+	Attribute base routing : routes.MapMvcAttributeRoutes();  
+	
+	[RouteArea("Test")]  
+	[RoutePrefix("Mvctest")] 
+	[Route("products/shirt")]  	
+	[Route("products/shirt/{id}")]  
+	
+	Use a tilde (~) on the method attribute to override the route prefix if needed:
+	[Route(“~/product”)]
+	https://www.c-sharpcorner.com/article/routing-in-mvc-5/#:~:text=%20Types%20of%20Routing%20%201%20Conventional%20or,Attribute%20Routing%20%28Available%20in%20MVC%205%29%20More%20
+	
+	Routing Two Type of Routing Convensional base routing and Attribute base routing
+	https://www.tutorialsteacher.com/mvc/routing-in-mvc
+	
+viewdata-vs-viewbag-vs-tempdata :	
+	https://www.c-sharpcorner.com/blogs/viewdata-vs-viewbag-vs-tempdata-in-mvc1
+	
+	It is Key-Value Dictionary collection	
+	It is a type object	
+	It is Key-Value Dictionary collection
+
+	ViewData is a dictionary object and it is property of ControllerBase class	
+	ViewBag is Dynamic property of ControllerBase class.	
+	TempData is a dictionary object and it is property of controllerBase class.
+	
+	Its value becomes null if redirection has occurred.	
+	Same as ViewData	
+	TempData is used to pass data between two consecutive requests.
+
+	It lies only during the current request.	
+	Same as ViewData	
+	TempData only works during the current and subsequent request	
+
+	Type Conversion code is required while enumerating
+	ViewBag is used dynamic, so there is no need to type conversion while enumerating.	
+	Type Conversion code is required while enumerating
+
+	ViewData is Faster than ViewBag	
+	ViewBag is slower than ViewData	
+	NA
+
+	ViewData is introduced in MVC 1.0 and available in MVC 1.0 and above	
+	ViewBag is introduced in MVC 3.0 and available in MVC 3.0 and above	
+	TempData is also introduced in MVC 1.0 and available in MVC 1.0 and above.
+
+	ViewData also works with .net framework 3.5 and above	
+	ViewBag only works with .net framework 4.0 and above	
+	TempData also works with .net framework 3.5 and above
+	
+viewresult-and-actionresult :
+	https://stackoverflow.com/questions/4743741/difference-between-viewresult-and-actionresult
+	
+	ActionResult is an abstract class that can have several subtypes.
+	ViewResult derives from ActionResult. Other derived classes include JsonResult and PartialViewResult.
+	
+	ViewResult - Renders a specifed view to the response stream
+	PartialViewResult - Renders a specifed partial view to the response stream
+	EmptyResult - An empty response is returned	
+	RedirectResult - Performs an HTTP redirection to a specifed URL
+	RedirectToRouteResult - Performs an HTTP redirection to a URL that is determined by the routing engine, based on given route data
+	JsonResult - Serializes a given ViewData object to JSON format
+	JavaScriptResult - Returns a piece of JavaScript code that can be executed on the client
+	ContentResult - Writes content to the response stream without requiring a view
+	FileContentResult - Returns a file to the client
+	FileStreamResult - Returns a file to the client, which is provided by a Stream
+	FilePathResult - Returns a file to the client
+
+Bundling and minification :
+	ASP.NET MVC Application performance can be improved with the help of Bundling and Minification. 
+	Bundling and Minification are two separate techniques to reduce load time. 
+	Bundling reduces the number of requests to the Server, whereas Minification reduces the size of the requested assets.
+	
+Filters :
+	If I want to implement some logic either prior to the execution of the action method or right after it. In that scenario, the Action Filters are used. Filters are used to determine the logic needed for executing before or after the action method gets executed. Action methods make use of the action filters as an attribute. 
+
+	https://www.c-sharpcorner.com/UploadFile/0ef46a/filters-in-mvc/
+	https://www.tutorialspoint.com/asp.net_mvc/asp.net_mvc_filters.htm
+	
+	[OutputCache(Duration = 10, VaryByParam = "none", Location=OutputCacheLocation.Client, NoStore=true)]
+	
+	Duration = 10 second
+	Location = OutputCacheLocation.Client means, cache is stored on client side, 
+	while NoStore=true is used to intimate the proxy server that should not save any copies of these data on the server.
+	
+	[OutputCache(Duration = 10, VaryByParam = "*")]  
+	[OutputCache(Duration = 10, VaryByParam = "name; city")]  
+	
+	https://www.c-sharpcorner.com/UploadFile/abhikumarvatsa/output-caching-in-mvc/
+	
+	[FilterA(Order=2)]
+	[FilterB(Order=1)]
+	public ActionResult Index()
+	{          
+		return View();
+	}	
+
+	Authentication Filter confirms if you are a valid or invalid user.
+	Authorization filters allow you to perform authorization tasks for an authenticated user.
+	
+	Authentication Filter - Implements the IAuthenticationFilter attribute - OnAuthentication , OnAuthenticationChallenge
+	Authorization filters – Implements the IAuthorizationFilter attribute. - OnAuthorization
+	Action filters – Implements the IActionFilter attribute. - OnActionExecuting , OnActionExecuted
+	Result filters – Implements the IResultFilter attribute. - OnResultExecuting , OnResultExecuted
+	Exception filters – Implements the IExceptionFilter attribute. - OnException
+
+	ActionFilterAttribute contains four important methods as in the following ::	
+	OnActionExecuting: It is called just before the action method is going to call.
+	OnActionExecuted: It is called just after the action method is called.
+	OnResultExecuting: It is called just before the result is executed; it means before rendering the view.
+	OnResultExecuted: It is called just after the result is executed, it means after rendering the view.
+
+NonActionAttribute :	
+	https://dotnettutorials.net/lesson/non-action-selector-mvc/
+	
+	By default, in ASP.NET MVC, an action method is a public method in a controller that can be invoked using a URL request. But in some scenarios, we need to restrict the public methods of a controller to be invoked by a URL i.e. we don’t want the action method to be invoked using URL request.
+	
+	[NonAction]
+	public string Method2()
+	{
+		return "<h1>Method 2 Invoked</h1>";
+	}
+
+ViewStart :
+	_ViewStart.cshtml It's a special file in ASP.NET MVC. The code in this file is executed before the code in an individual view is executed. Instead of setting the Layout property in each individual view, we can move that code into the _ViewStart.cshtml file.
+	
+CSRF (Cross Site Request Forgery) : What is AntiForgeryKey()
+	https://www.c-sharpcorner.com/article/understand-antiforgeri-token-in-asp-net-mvc/
+	
+	@Html.AntiForgeryToken() in view
+	[ValidateAntiForgeryToken()] on action method
+	
+	AntiForgeryToken - which is protecting your website from unwanted anti-forgery requests.
+	To use this feature, call the AntiForgeryToken method from a form and add the ValidateAntiForgeryToken attribute to the action method that you want to protect.
+	
+	
+------------------------------------------------------------------------------------------
+
+Transient: creates a new instance of the service, every time you request it.
+Scoped: creates a new instance for every scope. (Each request is a Scope). Within the scope, it reuses the existing service.
+Singleton: Creates a new instance only once during the application lifetime, and uses it everywhere
+
+
+Singleton objects are the same for every object and every request.
+Scoped objects are the same within a request, but different across different requests.
+Transient objects are always different; a new instance is provided to every controller and every service.
+Scoped services service is the better option when you want to maintain state within a request.
+
+------------------------------------------------------------------------------------------
+Forms Authentication vs Window Authentication ::
+
+Windows Authentication provider is the default authentication provider for ASP.NET applications. When a user using this authentication logs in to an application, the credentials are matched with the Windows domain through IIS.
+
+There are 4 types of Windows Authentication methods:
+1) Anonymous Authentication - IIS allows any user
+2) Basic Authentication - A windows username and password has to be sent across the network (in plain text format, hence not very secure).
+3) Digest Authentication - Same as Basic Authentication, but the credentials are encrypted. Works only on IE 5 or above
+4) Integrated Windows Authentication - Relies on Kerberos technology, with strong credential encryption
+
+
+Forms Authentication - This authentication relies on code written by a developer, where credentials are matched against a database. Credentials are entered on web forms, and are matched with the database table that contains the user information.
+------------------------------------------------------------------------------------------
+	
+Difference Between =, == And === In JavaScript ::
+
+	= is used for assigning values to a variable in JavaScript. 
+	var number = 100; 
+	
+	== in JavaScript is used for comparing two variables, but it ignores the datatype of variable.
+	number == 100 or number == "100" ==> both are equals
+
+	=== is used for comparing two variables, but this operator also checks datatype and compares two values.
+	number === 100  	==> equals
+	number === "100" 	==> not equals
+
+------------------------------------------------------------------------------------------
+
+MVC Life Cycle ::
+
+Request -------->>> Routing -------->>> Controller Initialization -------->>> Action Execution (Model Binding, Action Filters, 
+																						|		Action Execuion, Action Result)
+																						|
+																						|
+																						|
+Response <<<---- Result Execution <<<---- View Engine <<<---- Result Execution <<<------|
+				 (Result Executed )		  (Render View)		  (Result Executing )				
+																					
+
+
+------------------------------------------------------------------------------------------
+
+Dapper, Microservices, MQTT, SignalR 
+
+Dapper ::
+Dapper is a simple Object Mapper and is nothing but Object-relational mapping (ORM) and is responsible for communicate with the database
+
+Dapper extends the IDbConnection interface with these multiple methods:
+	Execute(ExecuteAsync) 	– an extension method that we use to execute a command one or multiple times and return the number of affected rows
+	Query(QueryAsync) 		– with this extension method we can execute a query and map the result
+	QueryFirst(QueryFirstAsync) –  it executes a query and maps the first result
+	QueryFirstOrDefault(QueryFirstOrDefaultAsync) – we use this method to execute a query and map the first result, or a default value 
+													if the sequence 	contains no elements
+	QuerySingle(QuerySingleAsync) – an extension method that can execute a query and map the result.  It throws an exception if there 
+									is not exactly one element in the sequence
+	QuerySingleOrDefault(QuerySingleOrDefaultAsync) – executes a query and maps the result, or a default value if the sequence is empty. 
+													It throws an exception if there is more than one element in the sequence
+	QueryMultiple(QueryMultipleAsync) – an extension method that executes multiple queries within the same command and map results
+
+SignalR ::
+SignalR is a free and open-source software library for Microsoft ASP.NET that allows server code to send asynchronous notifications to client-side web applications. 
+
+------------------------------------------------------------------------------------------
+Design patterns :::::::::::::
+
+Creational Design Pattern ::
+	Factory Method					Prototype
+	Abstract Factory				Singleton
+	Builder
+		
+Structural Design Patterns ::
+	Adapter							Façade
+	Bridge							Flyweight
+	Composite						Proxy
+	Decorator
+	
+Behavioral Design Patterns ::
+	Chain of Responsibility			Memento
+	Command							Observer
+	Interpreter						State
+	Iterator						Strategy
+	Mediator						Visitor
+	Memento							Template Method
+	
+	
+------------------------------------------------------------------------------------------	
+Unit Test Boilerplate Generator
+
+https://marketplace.visualstudio.com/items?itemName=RandomEngy.UnitTestBoilerplateGenerator	
+	
+	

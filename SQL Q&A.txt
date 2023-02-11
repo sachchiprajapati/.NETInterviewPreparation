@@ -1,0 +1,557 @@
+
+Sql Interview Questions
+
+https://intellipaat.com/blog/interview-question/sql-interview-questions/
+
+FIND SQL Version :: Select 	('productversion')
+
+Normalization
+
+	Normalization is the process of organizing the data in the database.
+	Normalization is used to minimize the redundancy from a relation or set of relations. It is also used to eliminate undesirable characteristics like Insertion, Update, and Deletion Anomalies.
+	Normalization divides the larger table into the smaller table and links them using relationship.
+	The normal form is used to reduce redundancy from the database table.
+
+primary key
+	A primary is a single column value used to identify a database record uniquely.
+	A primary key cannot be NULL
+	A primary key value must be unique
+	The primary key values should rarely be changed
+	The primary key must be given a value when a new record is inserted.
+
+A composite key is a primary key composed of multiple columns used to identify a record uniquely
+
+Candidate key ::
+Candidate key is a single key or a group of multiple keys that uniquely identify rows in a table.
+A Candidate key is a subset of Super keys and is devoid of any unnecessary attributes that are not important for uniquely identifying tuples.
+The value for the Candidate key is unique and non-null for all tuples. And every table has to have at least one Candidate key. But there can be more than one Candidate Key too.
+
+
+--> cluster and non cluster index and diff between them and which is better
+
+	Indexes are used to retrieve data from the database more quickly
+	
+	https://www.sqlshack.com/what-is-the-difference-between-clustered-and-non-clustered-indexes-in-sql-server/
+	
+	A clustered index defines the order in which data is physically stored in a table. Table data can be sorted in only way, therefore, there can be only one clustered index per table. In SQL Server, the primary key constraint automatically creates a clustered index on that particular column.
+	SQL Server allows us to add up to 16 columns to the clustered index key
+	
+	A non-clustered index doesn’t sort the physical data inside the table. In fact, a non-clustered index is stored at one place and table data is stored in another place. This is similar to a textbook where the book content is located in one place and the index is located in another. This allows for more than one non-clustered index per table.
+	
+	When a query is issued against a column on which the index is created, the database will first go to the index and look for the address of the corresponding row in the table. It will then go to that row address and fetch other column values. It is due to this additional step that non-clustered indexes are slower than clustered indexes.
+	
+--> GIve me cursor example
+
+--> triggers
+	
+	A trigger is a special type of stored procedure that automatically runs when an event occurs in the database server.
+	
+	DDL (Data Definition Language) Triggers : CREATE, ALTER, and DROP
+	DML (Data Manipulation Language) Triggers : INSERT, UPDATE, and DELETE
+	Logon Triggers : Logon triggers are a special type of trigger that fire when LOGON event of SQL Server is raised. This event is raised when a user session is being established with SQL Server that is made after the authentication phase finishes, but before the user session is actually established.
+	
+	https://www.sqlshack.com/triggers-in-sql-server/
+		
+	DCL (Data Control Language) :: GRANT, REVOKE	
+	TCL (Transaction Control Language) : COMMIT , ROLLBACK , SAVEPOINT
+	
+--> function
+
+	Function is a stored program that you can pass parameters into and return a value.
+	 Types of Function :
+	 
+		1. System Defined Function
+			1.	Scalar Function : Scalar functions operate on a single value and return a single value
+				--abs(-10.67) --rand(10) --round(17.56719,3) --upper('dotnet')	--lower('DOTNET')	--ltrim(' dotnet') --rtrim('dotnet ')	--convert(int, 15.56)	--LEN()	
+				
+			2.	Aggregate Function : Aggregate functions operate on a collection of values and return a single value.
+				--max()	--min()	--avg()	--count()	--SUM()
+				
+		2. User-Defined Function : The user-defined functions may accept required parameters, perform certain actions, and return the processed data
+			1.	Scalar Function : The user-defined scalar function also returns a single value as a result of actions performed by the function.
+			2.	Inline Table-Valued Function : The user-defined inline table-valued function returns a table variable as a result of actions performed by the function
+				
+	https://www.dotnettricks.com/learn/sqlserver/different-types-of-sql-server-functions
+	
+--> views
+
+	view is a virtual table based on the result-set of an SQL statement. 
+	A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+	A VIEW does not require any storage in a database because it does not exist physically
+
+    https://www.sqlshack.com/sql-view-a-complete-introduction-and-walk-through/
+	   
+	When SCHEMABINDING is specified, the base table or tables cannot be modified in a way that would affect the view definition. The view definition itself must first be modified or dropped to remove dependencies on the table that is to be modified.
+	
+--> Store Procedure ::
+	
+	A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again. In other words, we can consider a stored procedure to be a function consisting of many SQL statements to access the database system. We can consolidate several SQL statements into a stored procedure and execute them whenever and wherever required.
+
+	A stored procedure can be used as a means of modular programming, i.e., we can create a stored procedure once, store it, and call it multiple times as required. This also supports faster execution when compared to executing multiple queries.
+	
+	https://www.sqlshack.com/sql-server-stored-procedures-for-beginners/
+	
+	Bebefits : --It can be easily modified --Reduced network traffic --Reusable  --Security  --Performance
+	
+--> cursor ::
+	
+	Cursors are used when the user needs to update records in a singleton fashion or in a row by row manner, in a database table.
+	
+	Cursor Actions ::
+		=> Declare Cursor : A cursor is declared by defining the SQL statement that returns a result set.
+		=> Open : A Cursor is opened and populated by executing the SQL statement defined by the cursor.
+		=> Fetch : When the cursor is opened, rows can be fetched from the cursor one by one or in a block to perform data manipulation.
+		=> Close : After data manipulation, close the cursor explicitly.
+		=> Deallocate : Finally, delete the cursor definition and release all the system resources associated with the cursor.
+	
+	https://www.geeksforgeeks.org/cursors-in-pl-sql/
+	https://www.sqlshack.com/learn-sql-sql-server-cursors/
+
+--> what is magic tables ::
+		A magic table can be defined as a provisional logical table that is developed by an SQL Server 
+		for tasks such as insert, delete, or update (DML) operations. 
+		The operations recently performed on the rows are automatically stored in magic tables. 
+		Magic tables are not physical tables; they are just temporary internal tables.
+		You can see them only with the help Triggers in SQL Server
+		
+		https://www.c-sharpcorner.com/UploadFile/rohatash/magic-tables-in-sql-server-2012/
+		https://www.niceonecode.com/blog/42/what-are-magic-tables-in-sql-server
+		
+--> ACID property in a database
+
+===> Types of SQL Operators : 
+		=> Arithmetic Operators ::
+			addition (+)
+			subtraction (-)
+			multiplication (*)
+			division (/)
+			remainder/modulus (%)
+		=> Logical Operators ::
+			ALL
+			AND
+			ANY
+			ISNULL
+			EXISTS
+			BETWEEN
+			IN 
+			LIKE
+			NOT
+			OR 
+			UNIQUE
+		=> Comparison Operators ::
+			equal to (=)
+			not equal to (!= or <>)
+			less than (<), 
+			greater than (>)
+			less than or equal to (<=)
+			greater than or equal to (>=)
+			not less than (!<)
+			not greater than (!>)
+		=> Bitwise Operators ::
+			AND (& symbol)
+			OR (|, ^)
+			NOT (~)
+		=> Compound Operators ::
+			Add equals (+=)
+			subtract equals (-=)
+			multiply equals (*=)
+			divide equals (/=)
+			modulo equals (%=)
+		=> String Operators ::
+			+ (String concatenation)
+			+= (String concatenation assignment)
+			% (Wildcard)
+			[] (Character(s) matches)
+			[^] (Character(s) not to match)
+			_ (Wildcard match one character)
+
+--> Character Manipulation function ::
+
+	UPPER: It returns the string in uppercase - SELECT UPPER(‘demo string’) from String; - DEMO STRING
+	LOWER: It returns the string in lowercase - SELECT LOWER (‘DEMO STRING’) from String; - demo string
+	INITCAP: It converts the first letter of the string to uppercase and retains others in lowercase - SELECT Initcap(‘dATASET’) from String - Dataset
+	CONCAT: It is used to concatenate two strings - SELECT CONCAT(‘Data’,’Science’) from String - Data Science
+	LENGTH: It is used to get the length of a string - SELECT LENGTH(‘Hello World’) from String - 11
+
+--> The COALESCE function takes a set of inputs and returns the first non-null value.	
+	SELECT COALESCE(NULL, 1, 2, ‘MYSQL’) == 1
+
+--> The stuff() function deletes a part of the string and then inserts another part into the string, starting at a specified position.
+	STUFF(String1, Position, Length, String2)
+	select stuff(‘SQL Tutorial’,1,3,’Python’) == Python Tutorial
+	
+--> BETWEEN and IN operators ::
+	
+	The IN operator is logical operator that is used to check whether a particular value exists within a set of values or not.
+	To perform the query based on such condition you can utilize the BETWEEN operator. It is a logical operator that allows you to specify a range to test.
+
+--> WHERE vs HAVING ::
+	WHERE Clause is used to filter the records from the table based on the specified condition.
+	HAVING Clause is used to filter record from the groups based on the specified condition
+	
+	WHERE Clause can be used without GROUP BY Clause
+	HAVING Clause cannot be used without GROUP BY Clause
+	
+	WHERE Clause implements in row operations 
+	HAVING Clause implements in column operation
+	
+	WHERE Clause can be used with SELECT, UPDATE, DELETE statement.
+	HAVING Clause can only be used with SELECT statement.
+	
+	WHERE Clause is used before GROUP BY Clause
+	HAVING Clause is used after GROUP BY Clause
+
+	WHERE restricts the result set before returning rows
+	HAVING restricts the result set after bringing all the rows. So WHERE is faster.
+
+--> Create empty tables with the same structure as another table :: 
+	SELECT * INTO tblDepartment_copy1 FROM tblDepartment WHERE 1 = 2;
+	
+--> Create table with data with the same structure as another table ::
+	SELECT * INTO tblDepartment_copy1 FROM tblDepartment WHERE 1 = 1;	
+
+--> Difference between varchar and nvarchar and Which is better
+	varchar: store 1 byte per character
+	nvarchar : store 2 bytes per character
+	
+	varchar : store 8 bit data 
+	nvarchar : store unicode data
+	
+	varchar : varchar is used for non-Unicode characters only
+	nvarchar : nvarchar is used for both unicode and non-unicode characters.
+	
+	varchar is stored as regular 8-bit data(1 byte per character) 
+	nvarchar stores data at 2 bytes per character
+	
+	varchar will be quicker
+	The real reason you want to use NVARCHAR is when you have different languages in the same column
+	
+--> Diff betwenn #temp , @temp variabl @cte
+	
+	#temp : 
+	
+		Local temp tables are only available to the SQL Server session or connection (means single user) that created the tables.
+		These are automatically deleted when the session that created the tables has been closed. 
+		The local temporary table name is stared with a single hash ("#") sign.
+		The scope of Local temp table exists to the current session of the current user
+		Temporary tables are allowed CREATE INDEXes
+		Temporary table allows Schema modifications
+		
+	##temp : 
+	
+		Global temp tables are available to all SQL Server sessions or connections (means all the user) but are still dropped when the session that created it is closed and all other references to them are closed..
+		The global temporary table name is stared with double hash ("##") sign
+		
+	@tablevariable :
+	
+		Table variable (@table) is created in the memory. if there is a memory pressure the pages belonging to a table variable may be pushed to tempdb.
+		Table variables cannot be involved in transactions, logging or locking. This makes @table faster
+		Table Variable acts like a variable and exists for a particular batch of query execution. It gets dropped once it comes out of batch. 
+		Table variables aren’t allowed CREATE INDEX instead they can have index by using Primary Key or Unique Constraint
+		
+	@cte : 
+	
+		It is a temporary result set and typically it may be a result of complex sub-query. 
+		Unlike the temporary table, its life is limited to the current query. 
+		It is defined by using WITH statement. CTE improves readability and ease in maintenance of complex queries and sub-queries.
+		Always begin CTE with a semicolon.
+        CTEs can make it easier to write and manage complex queries by making them more readable and simple.  
+
+		https://www.javatpoint.com/common-table-expression-in-sql-server
+
+--> difference between store procedure and inline queries
+
+		1.Stored procedures are strored in a pre complied form. That is once a Stored procedure is executed, the compiled code is used in subsequent calls. This is not possible with inline queries.
+
+		2.Stored procedures reduces network traffic. Since Stored procedures are stored in the server, only the name of Stored procedure is required to pass to the server. But in the case of inline queries , the complete query has to be passed to the server. So inline queries will increase network traffic when the queries are very large.
+
+		3.Stored procedures support Deferred Name Resolution.That is we can create stored procedures for objects(eg:- tables) which are not yet created ( and will be creating in the near future)
+
+		4.Stored procedures prevents SQL Injection Errors.
+
+		5.By using Stored procedures we can seperate all the queries from the Business logic code.
+		Therefore we can create a seperate layer.
+		But while writing inline queries , all the queries have to be written (mixed up ) with the business logic code. This create problem while debugging.
+
+		6.Developers can work simultaneously while using stored procedures.
+		While a programmer writes business logic, another one can create stored procedures at the same time.
+
+
+--> increase performance of store procedures
+
+	- Use SET NOCOUNT ON
+		In the first procedure, I have not used SET NOCOUNT ON statement so it has printed a message for how many rows are affected. It means if we do not use this then it will print an extra message and it affects performance.
+	- Use schema name before objects. 
+		It helps SQL Server to find the object.
+	- Use EXISTS () instead of COUNT ()
+	- Don’t use functions in the WHERE clause
+	- Use NO LOCK
+	- Specify column names instead of using * in SELECT statement
+	- Avoid temp temporary table
+	- Create Proper Index
+	- Use Join query instead of sub-query and co-related subquery
+	- Do not create your procedure name prefix with sp_ always use different prefix i.e. usp_YourStoreProcName.
+		SP_StoreProcName is bad practice because when SQL server searches for procedure name then it will first search in the master database then your database. If you prefix with SP_ then it will start looking in system procedures so it will take more time. 
+	- Keep your transaction as short as possible 
+	- Use the Primary key & Index properly in the table
+	- Prevent the usage of DISTINCT and HAVING clauses.
+
+The NOLOCK hint allows SQL to read data from tables by ignoring any locks and therefore not get blocked by other processes.
+SELECT * FROM Person.Contact WITH (NOLOCK) WHERE ContactID < 20 
+
+--> Difference between function and procedure
+
+	The function must return a value 
+	Stored Procedure it is optional
+	
+	Functions can have only input parameters
+	Stored Procedures can have input or output parameters.
+	
+	The function can be called by a procedure.	
+	But a procedure can not be called by a function
+
+	In sql, inside the function we can not use the DML(Data manipulation language) commands such as Insert, Delete, Update.	
+	Here, in sql, inside the procedure we can use DML commands.
+
+	Functions can be called through sql queries.	
+	However, the procedure can’t be called through a sql query.
+
+	Each time functions are compiled when they are called.	
+	Whereas, procedures are compiled only once and can be called again and again as needed without being compiled each time.
+
+	Function doesn’t support try-catch blocks.	
+	While it supports try-catch blocks.
+
+	Function does not support explicit transaction handles.	
+	While procedure supports explicit transaction handles.
+	
+	Temporary tables cannot be used within a function. Only table variables can be used.
+	Both table variables and temporary tables can be used.
+	
+	Functions can be called from a Select statement.
+	Stored procedures cannot be called from a Select/Where or Having statements. Execute statement has to be used to execute a stored procedure.
+	
+	Functions can be used in JOIN clauses.
+	Stored procedures cannot be used in JOIN clauses
+	
+	Like Stored Procedure, Function can be nested up to 32 levels. 
+    User Defined Function can have up to 1023 input parameters 
+	while a Stored Procedure can have up to 2100 input parameters.
+
+--> Sql Query Tunning
+
+	set statatic io,time on
+	physical read and logical read
+	io can be logical and physical
+	spooling  : tempopary store of data to make compute easy
+	lazy spooling is bad : in select statment  you find lazy  means store data in temp for computin
+	eagar spooling is good : in update where coditions data is stored some where and then it is being updated
+	duplicate aggregation
+
+	try to do index seek not index scan 
+	 for that follow some rules 
+	--- Order of indexes matters , no of column in index and select queries matters
+
+	Hashmatch : check whether missing index add it or some time index in there then we have to use in where conditions 
+	and don't use aggrega funntions
+
+	Key Lookup : remove keylookup from execution plan
+		Missing column in index
+	remove bad views
+	subqueries segergation
+
+-------------------------------------
+	Prefer to use views and stored procedures in spite of writing long queries. It’ll also help in minimizing network load.
+	It’s better to introduce constraints instead of triggers. They are more efficient than triggers and can increase performance.
+	Make use of table-level variables instead of temporary tables.
+	The UNION ALL clause responds faster than UNION. It doesn’t look for duplicate rows whereas the UNION statement does that regardless of whether they exist or not.
+	Prevent the usage of DISTINCT and HAVING clauses.
+	Avoid excessive use of SQL cursors.
+	Make use of SET NOCOUNT ON clause while building stored procedures. It represents the rows affected by a T-SQL statement. It would lead to reduced network traffic.
+	It’s a good practice to return the required column instead of all the columns of a table.
+	Prefer not to use complex joins and avoid disproportionate use of triggers.
+	Create indexes for tables and adhere to the standards.
+
+
+--> A SQL injection is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious 
+    code to a database query. 
+	
+
+--> Find Duplicate Rows ::
+	
+select Name, Salary, Count(*) as Count from tblEmployee 
+group by Name,Salary
+Having Count(*) > 1
+
+--> Delete Duplicate Rows ::
+	
+delete from tblEmployee where Id not in(
+select Max(Id) from tblEmployee 
+group by Name,Salary)
+
+
+==> Second Highest Salary QUERY ::
+
+SQL ::
+	
+SELECT TOP 1 SALARY
+FROM (
+      SELECT DISTINCT TOP 2 SALARY FROM tblEmployee ORDER BY SALARY DESC
+      ) RESULT
+ORDER BY SALARY
+
+or 
+
+select max(Salary) as Salary from tblEmployee where Salary < (select max(Salary) as Salary from tblEmployee)	
+
+
+Nth Highest Salary with Employee Details ::
+---------------------------------------------
+select * from tblemployee where salary = (select min(salary) from tblemployee where  salary IN 
+(select distinct TOP 3 salary from tblemployee order by salary desc ) )  
+
+---------------------------------------------
+
+;WITH SalaryResult AS
+(SELECT Id, Name, Salary,
+DENSE_RANK () OVER (  ORDER BY Salary DESC ) as denserank 
+FROM [tblEmployee] )
+SELECT * FROM SalaryResult WHERE denserank = 3
+--------------------------------------------------------------------------------------------------------------------------
+
+Nth Highest Salary QUERY ::
+var result = employees.OrderByDescending(x => x.Salary)  
+                    .Select(x => x.Salary).Distinct().Take(NthNumber)  
+                    .Skip(NthNumber - 1).FirstOrDefault(); 
+					
+var result = employees.OrderByDescending(x => x.Salary).Select(x => x.Salary).Distinct().Take(2).Skip(2 - 1).FirstOrDefault();	
+
+--------------------------------------------------------------------------------------------------------------------------
+
+SET NOCOUNT ON/OFF statement controls the behavior in SQL Server to show the number of affected rows in the T-SQL query.
+
+SET NOCOUNT OFF – By default, SQL Server shows the number of affected rows in the messages pane
+SET NOCOUNT ON – We can specify this set statement at the beginning of the statement. Once we enable it, we do not get the number of affected rows in the output		
+
+--------------------------------------------------------------------------------------------------------------------------
+
+The @@identity function returns the last identity value generated for any table in the current session, across all scopes.
+
+The scope_identity() function returns the last IDENTITY value inserted into an IDENTITY column in the same scope and same session.
+
+The ident_current('tablename') returns the last identity value generated for a specific table in any session and any scope.
+
+https://database.guide/ident_current-vs-identity-vs-scope_identity-in-sql-server-whats-the-difference/
+
+--------------------------------------------------------------------------------------------------------------------------
+
+row_number() ::
+row_number() function always generates a unique ranking even with duplicate records
+
+Dense_Rank() ::
+Dense_Rank() Function will assign a unique value to each distinct Row, this will not leave gaps between groups.
+
+Rank() :: 
+This function will assign a unique value to each distinct Row, but it leaves a gaps between the groups.
+
+
+SELECT Id, Name, Salary,
+ROW_NUMBER () OVER (  ORDER BY Salary DESC ) rownumber ,
+DENSE_RANK () OVER (  ORDER BY Salary DESC ) denserank ,
+RANK () OVER (  ORDER BY Salary DESC ) rank
+FROM [tblEmployee];
+
+Id	Name	Salary	rownumber	denserank	rank
+4	DDD		20000		1			1		 1
+2	BBB		12000		2			2		 2
+1	AAA		10000		3			3		 3
+7	GGG		6000		4			4		 4
+8	HHH		5000		5			5		 5
+5	FFF		5000		6			5		 5
+3	CCC		2000		7			6		 7
+
+--------------------------------------------------------------------------------------------------------------------------
+SQL Join ::
+
+=========================
+Inner Join :: 
+The INNER JOIN keyword selects records that have matching values in both tables.
+
+select emp.Name, emp.Salary , dept.Department from tblEmployee as emp inner join  tblDepartment as dept on emp.DepartmentId = dept.Id  
+
+=========================
+LEFT JOIN ::
+The LEFT JOIN keyword returns all records from the left table (table1), and the matching records from the right table (table2). The result is NULL records from the right side, if there is no match.
+
+select emp.Name, emp.Salary , dept.Department from tblEmployee as emp left join  tblDepartment as dept on emp.DepartmentId = dept.Id
+
+=========================
+RIGHT Join ::
+The RIGHT JOIN keyword returns all records from the right table (table2), and the matching records from the left table (table1). The result is NULL records from the	 left side, if there is no match.
+
+select emp.Name, emp.Salary , dept.Department from tblEmployee as emp right join  tblDepartment as dept on emp.DepartmentId = dept.Id
+
+=========================
+FULL Join ::
+The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+FULL OUTER JOIN and FULL JOIN are the same.
+
+select emp.Name, emp.Salary , dept.Department from tblEmployee as emp FULL OUTER JOIN tblDepartment as dept on emp.DepartmentId = dept.Id
+
+or
+
+select emp.Name, emp.Salary , dept.Department from tblEmployee as emp FULL JOIN tblDepartment as dept on emp.DepartmentId = dept.Id
+
+=========================
+Self Join ::
+A self join is a regular join, but the table is joined with itself.
+
+SELECT A.Name as Name1, B.Name as Name2, A.Salary 
+FROM tblEmployee A, tblEmployee B
+WHERE A.Id <> B.Id ORDER BY A.Name;
+
+=========================
+Cross Join ::
+CROSS JOIN is that it returns the Cartesian product of the joined tables.
+
+SELECT emp.Id,emp.Name, emp.Salary , dept.Department 
+FROM tblEmployee as  emp CROSS JOIN tblDepartment as dept 
+
+or
+
+SELECT emp.Id,emp.Name, emp.Salary , dept.Department 
+FROM tblEmployee as  emp , tblDepartment as dept
+ 
+--------------------------------------------------------------------------------------------------------------------------
+DELETE, DROP and TRUNCATE :
+
+TRUNCATE ::
+	TRUNCATE SQL query removes all rows from a table, without logging the individual row deletions. 
+	TRUNCATE is a DDL command
+	Cannot use the WHERE clause with TRUNCATE.
+	Identify the column is reset
+	To use Truncate on a table you need at least ALTER permission on the table.
+	Truncate cannot be used with indexed views.
+	TRUNCATE is faster than DELETE.
+	
+	TRUNCATE TABLE Customers;   
+	
+DELETE ::
+	DELETE query deletes all records from a database table. To execute a DELETE query, delete permissions are required on the target table
+	DELETE is a DML command.
+	We can use where clause with DELETE to filter & delete specific records.
+	Identity of column keep, DELETE retains the identity.
+	To use Delete you need DELETE permission on the table.
+	The delete can be used with indexed views.
+	
+	DELETE FROM Customers WHERE OrderId > 1000;
+	DELETE FROM Customers;  
+	
+DROP ::
+	DROP table query removes one or more table definitions and all data, indexes, triggers, constraints, and permission specifications for those tables.
+	DROP is a DDL commands.
+	The operation cannot be rolled back.
+	
+	DROP TABLE Customers ; 
+	
+DELETE operations can be rolled back (undone), while DROP and TRUNCATE operations cannot be rolled back	

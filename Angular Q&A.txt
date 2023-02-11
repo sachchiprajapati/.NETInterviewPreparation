@@ -1,0 +1,494 @@
+
+
+What is angular and what is usage of angular ::
+------------------------------------------------
+	Angular is javascript binding f/w which bind UI to Javascript Model . Means not need to write lot's of code to bind javascript object and UI (HTML).
+	Angular provides that framewrk to  bind this easily.
+	It has concept of routing which helps to bind SPA 
+	It has type script which gives you OOPS introduction in your application
+	
+
+Difference Between Angular and Angular JS ::
+------------------------------------------------
+	Angular - Type Script Means It provides object oriented programming
+	Anngular JS - Java  script 
+
+	Angular - it  is architecture of component and directive which manages view and controller part of any 
+	Angular JS - it is following MVC architecture means there is view file model which is managed by $scope varaible with controller file for each page
+
+	Angular - it  has wide mobile support , 
+		Angular 2 was made with a mobile-oriented architecture. NativeScript helped make Angular 2 mobile development faster and more effective. Starting with Angular 2, developers could create cross-platform applications with this framework.
+	AngularJS - it wasn't build keeping mobile support in mind
+
+	Angular : it has it's own dependany injection
+	Angularjs : it hasn't
+
+	Angular : Fast performance due to Dependancy Injection and OOPS Support using type script
+	AngularJS : Slow
+
+	Angular :it has nice and usefull structure for large application but bit complex
+	Angular JS : it has less complex structure
+	
+Directives :: 
+------------------------------------------------
+angular syntax which helps you to change behavior of html dom.
+means it is angular syntax which we write between html tags
+	
+eg. <input [(ngmodel]) = "value" type="text" value = "">
+<div>{{values}}</div>
+<div [hidden]="hide()">Hello</div>
+
+So this [(ngModel)] , {{value}} ,[hidden] all are directives
+
+	Types of Angular directives :: (S A C)
+	
+	Structural : Change the DOM layout by adding and removing DOM elements.
+			NgIf    Conditionally creates or disposes of subviews from the template.
+			NgFor	Repeat a node for each item in a list.
+			NgSwitch	A set of directives that switch among alternative views.
+			
+	Attribute :	Change the appearance or behavior of an element, component, or another directive.
+			NgClass	Adds and removes a set of CSS classes.
+			NgStyle	Adds and removes a set of HTML styles.
+			NgModel	Adds two-way data binding to an HTML form element.
+			<div [hidden]="hide()">Hello</div>
+			
+	Components : means you can say it is user defined control  which has it's own temlate		
+		I can create my own control with this directive
+		there is one control my grid with has it's own UI and Model. Need to pass required parameters and it will display Ui according to that passed data
+
+				
+Explain the immportance of NPM and Node_Module Folders ::
+-----------------------------------------------------
+NPM - Node package manager which help to install any javascript package in your application
+for e.g if we install  NPM query it will install jquery  f/w in your application from GitHUb in Node_Modules folder in application
+
+Node_Module - it  contains all packages which are installed		
+
+
+Explain importance of package.json file ::
+-------------------------------------------
+what ever javascript framework which are being used in application are listed in this file. It has all the Javascript references needed for a project.
+
+What is the importance of ^ and ~ in package.json ::
+--------------------------------------------------------
+^ =>> Latest Minor version + revision
+~ ==> Latest revision
+
+What is package-lock.json ?
+------------------------
+It has the exact version which is installed after analysis of package.json
+
+
+What is type script and why do we need TypeScript
+---------------------------------------------
+it adding types to javascript so that it is typescript.
+it is superset of javascript - means it's  build around javascript means javascript with more methods or we can say wrapper around  javascript
+and at the end compiler compile TypeScript code into javascript
+
+eg. tsc display.ts
+will create display.js with all complex code in it
+
+
+Explain  Angular CLI
+--------------------
+Command Line Interface
+npm install @angular/cli
+which give you perdefined commands to do tasks
+e.g ng new myapplication
+means it will create one angular application
+
+
+What is component and module in angular
+---------------------------------------
+Component is used as binder Model and view. more than that related css and other stuffs are also  kept in this component.
+we need to write that binding code in this component.
+But there is group which has number of component then it is module means there is one student module and all ts file related to that student stuff such as service,studentcomponent,repository all are kepp in that module
+
+What is decorator in angular / What are annotations or Metadata in Angular
+---------------------------------------------------------------------------
+decorator says that what kind of class is this in angular as it is module class or component class
+
+eg.
+
+@NgModule()
+{
+	
+}
+export class SalesModule
+{}
+
+the above syntax speccify that @NgModule define that SaleModule is module class
+
+@Component()
+{}
+export class SalesComponent
+{	
+}
+
+@Component specify that SalesComponent is component class
+
+@injectable menas this class can be inject in DI
+@Input , @Output Decorator ,@viewchild ,@viewchildren
+
+
+What is templateURL in Angular
+---------------------------
+template is nothing but view part of anyapplicatin
+@Component({
+	templateURL : "abcd.html" - this is physical file with url
+	template:"<b>Sachchi</b>" - this is inline template
+})
+
+
+What is databinding and what are different type of binding in angular ::
+--------------------------------------------------------------------
+databinding defines how view and component communicate with eachother. There are four kind of data binding in angular
+
+Expression/Interpolation 	: {{}} data flows from component to view we can write between html tags such as <td>{{value}}</td>
+Property binding 			: data flows from component to view <input [(ng-model)] = cust.customerID />
+event binding 				: data flows from view to component when user clicks on button it will call Toggle method in component
+							  <input type = "button" (click) = Toggle()/>
+Two way binding 			: <input [(ng-model)] = cust.customerID /> it two way binding means data flows from both view to componenet 
+                              and component to view
+
+
+There are 7 important pillars in Angular Architecture. ::
+----------------------------------------------------------------
+1. Template/View :- The HTML view of Angular.
+2. Component :- Binds the View and Model.
+3. Modules :- Groups components logically.
+4. Bindings :- Defines how view and component communicate.
+5. Directive :- Changes the HTML DOM behaviour.
+6. Services :- Helps to share common logic across the project.
+7. DI :- Dependency injection helps to inject instance across constructor.
+
+
+SPA and how to implement in Angular ? ::
+---------------------------------------------
+SPA stands for Single page application. Single page application are applications where the 
+main UI gets loaded once and then the needed UI or data is loaded rather than making a full  post back.
+
+In Angular it is implemented by using lazy routing concept.
+
+SPA or single page application are those applications where the main page is loaded once and the other pages get loaded on demand
+
+
+importance of routing in Angular ::
+-----------------------------------------
+Routing helps you to define the navigation for your angular application. So if you want to  move from one screen to other screen and 
+you want to respect SPA that means not loading  and refreshing the whole UI routing is needed.
+
+=> Create routing collection which defines the URL path and which component to load  for that URL.
+export const PatientRoutes = [
+ { path: '', component: PatientHomeComponent},
+ { path: 'Login', component: PatientLoginPageComponent}
+];
+
+=> Later this routing collection is loaded using router module using “forroot” or  “forchild” as shown in the code below.
+RouterModule.forRoot(PatientRoutes),
+
+=> Then we can use router-link directive on html anchor tag or in TS we can navigate  using router.navigate.
+<a [routerLink]="['/Home']">Home</a><br>
+<a [routerLink]="['/Login']">Login</a><br>
+
+When the navigation happens, the UI gets loaded in to router-outlet tag. Router-outlet is a  reserved tag in which the UI loads when routing happens.
+<router-outlet> </router-outlet>
+
+---->>> we can provide router link from code behind ==> this.route.navigate(['Home'])
+
+
+Lazy loading concept in Angular :::::
+--------------------------------------------------
+Lazy loading means on demand loading. Loading only the necessary HTML , CSS and  JavaScript files so that you have better performance 
+
+lazy loading we need to do three steps: -
+1. The first thing is dividing your project in to modules.
+2. Create separate routing files for each module and use “loadChildren” and specify  which modules to be loaded on demand.
+3. In routing navigation use “forRoot” to load the routes of the main module and  “forChild” to load the child module
+
+export const HomeRoute = [
+	{ path:'customer',loadchildren:'customer'}
+];
+
+
+what is services in angular
+---------------------------
+it help you to share common logic between agular projects
+if user need to share common functionlity between your module than do it via services
+
+
+What is depedancy injection and how to implment that in Angular
+----------------------------------------------------------------
+Dependancy injcection is an application design pattern where rather creating object in component, angular injects it via constructor.
+
+e.g export class testdata()
+{
+	constructor(public log:BaseLogger)
+	{
+		log.debug("hello");
+	}
+}
+
+in above dependancy BaseLogger is injected in testdata class
+
+implementation : 
+@NgModulde(
+{
+	declaration;[]
+	imports:[],
+	provider:[
+	{
+		provide:BaseLogger,useClass:AlertLogger
+	}]
+})
+so in above need to provide dependancy in @NgModule decorator
+use provider in which provide : BaseClass and which class to inject : Alert Logger
+
+
+Benefit of DI in angular
+-----------------------------------
+Decoupling 
+let log:AlertLogger = new AlertLogger();
+it is tight couple but DI loose couple it
+
+what is difference between ng-build and ng-serve
+------------------------------------------------------
+ng-serve - build application in memory - when development is going on ng-serve ie better
+ng-build - build on hard disk  - when production release is there use it , it created dist folder in application with all compile TypeScript to Javascript
+
+what does --prod does in Angular in ng-build
+-------------------------------------------------------
+it make build ready for production means it does minification and remove comments from code and make it more compress for prod release
+Ng build --prod flag compresses your JS file , removes comments , creates GUIDs of your JS  files and make your application ready for production.
+
+
+Explain the importance of Component Life cycle? / what angular component hooks / life cycle of angular hooks /	
+Life Cycle Of Angular Components
+-------------------------------------------------------------------------------------------------------------
+angular component hooks are events which developers can tap in and  write custom logic in the same. 
+For instance if you want to write initialization code when the  component starts first time then we can tap in to the “ngOninit()” function .
+If you want to write  clean up code when the component is unloading then we have the “ngOnDestroy()” function .
+
+https://www.c-sharpcorner.com/article/life-cycle-of-angular-components/#:~:text=In%20Angular%2C%20every%20component%20has,called%20life%20cycle%20hook%20events.
+
+ngOnChanges
+ngOnInit
+ngDoCheck
+ngAfterContentInit
+ngAfterContentChecked
+ngAfterViewInit
+ngAfterViewChecked
+ngOnDestroy
+
+
+Explain Events and Sequence of Component Life cycle?
+------------------------------------------
+
+
+Constructor VS ngOnInit ( )?
+------------------------------------------
+It’s a concept of Typescript. It’s called by JavaScript framework.
+It’s a concept of Angular. It’s an  angular event. It’s called by  Angular framework.
+
+Binding has not happened till this  moment so only class variables are accessible.
+Binding with the UI has been done so the class variables have values set from the UI.
+
+Component is not initialized. So, DOM is not accessible.
+Component is initialized, DOM is ready and accessible.
+
+
+Why do we need Template reference variables?
+--------------------------------------------------
+
+What is ContentProjection?
+-----------------------------------
+Content Projection is used when we want to project contents like HTML or Components from  parent component to child component.
+These contents get projected in to a reserved tag by name “ng-content”
+
+Explain Content projection Slot?
+-----------------------------------
+Content projection slot helps to project specific content to specific "<ng-content>" tag section..
+So if we have two “ng-content” sections in the contained component and from the parent component we want to project specific content to specific “ng-content” tags then we  need to define Content projection slots.
+
+Component1 :::::::::
+<comp2>
+	<b slot1> slot 1 </b>
+	<b slot2> slot 2 </b>
+</comp>
+
+Component2 :::::::::
+<ng-content select="slot1"></ng-content>
+<ng-content select="slot2"></ng-content>
+
+
+Explain ViewChild and ViewChildren?
+-----------------------------------
+ViewChild always returns the reference to a single element. If there are multiple elements the ViewChild returns the first matching element,
+ViewChildren always returns all the elements as a QueryList.
+
+What is ContentChild and ContentChildren?
+---------------------------------------------
+“ContentChild” and “ContentChildren” helps to access projected contents from the parent component. 
+“ContentChild” references a single projected content while “ContentChildren” references collection.
+
+
+ViewChild vs ViewChildren vs ContentChild vs ContentrChildren?
+---------------------------------------------------------------------
+“ViewChild” and “ViewChildren” helps to reference view elements which belongs to HIS OWN VIEWS.
+“ContentChild” and “ContentChildren” helps to access view elements which is PROJECTED BY THE PARENT.
+
+
+Angular Structure Explained
+------------------------
+Dist - All compiled java script file keeping there
+node_module : npm installed files 
+e2e  - end to end testing need to write whitebox test over here for testing purpose
+src - main folder which contains all angular files
+angular.json - all angular configuration
+package.json - all node installed files list is here - means there is dependacies which contains all librabry - so once you do npm install 
+				it will    install all files in that package.json file
+tsconfig.json - which contains all type script configuration
+
+
+Diff between ngfor and ngforof
+------------------------
+    The [ngFor] is not a type safe
+    The [NgForOf] is a type Safe
+	
+	The [ngFor] will be works like as collections
+    The [ngForOf] will be works like as generics
+	
+	[ngFor] and [NgForOf] are not two distinct things - they are actually the selectors of the [NgForOf] directive.
+	
+	ngFor as a shorthand ::
+	<li *ngFor="let item of items">{{item.name}}</li>
+	
+	ngFor as a longhand ::
+	<template ngFor let-item="$implicit" [ngForOf]="items">
+		{{item.name}}
+	</template>
+
+    The [NgFor] directive instantiates a template once per item from iterate
+
+
+what is environment.ts file
+-------------------------------
+It’s the global configuration file. If we have any global variables, we can declare it in this file and use it in all over the project.
+By default we will get two environment files. One for development and another one for production.
+
+validations
+-------------
+https://jasonwatmore.com/post/2018/05/10/angular-6-reactive-forms-validation-example
+
+
+how to pass element to sibling in angular
+---------------------------------------------
+https://stackoverflow.com/questions/35884451/angular-2-sibling-component-communication
+
+
+--------------------------------------------------------------------------------------
+ngif vs (hidden or display none) ::
+
+Angular's structural directive
+Normal HTML5 attribute
+
+No DOM element is added if ngIf evaluates to false.
+DOM element will be added to HTML
+
+ngIf might be slow while adding removing elements to the DOM because of intializations
+As the element is already added to DOM showing and hiding or very fast
+
+Ideal for rich angular applications
+Ideal if the component is simple no much interaction
+
+--------------------------------------------------------------------------------------
+ngOnInit() ::
+
+ngOnInit is a life cycle hook managed by Angular
+ngOnInit called by Angular when component is initialized
+Actual business logic performed ngOnInit method
+ngOnInit will be executed, When Angular done with the creating of component DOM.
+ngOnInit will be called after the constructor execution and after first ngOnChanges
+
+--------------------------------------------------------------------------------------
+ngOnInit vs	Constructor ::
+
+One of the Angular life cycle hook method
+Typescript feature nothing to do with Angular
+
+ngOnInit being added to prototype of the class created	
+constructor is transformed to function with the same name as class created
+
+Called by Angular	
+Called by Javascript Engine
+
+Invoked by Angular when component is initialized	
+Constructor is automaticlly called at the time of creating object of the class
+
+Actual business logic performed here	
+Used for Injecting dependencies
+
+Everything is ready at the time of invocation	
+Not everything in component is initialized at the time of invocation
+--------------------------------------------------------------------------------------
+forroot vs forchild ::
+
+ForRoot is used when a module is “eager” (loads when the application starts). Angular creates a Router instance for all the modules that is going to be injected into the “root” of the modules. When we want to access our providers from any point in the application.
+
+ForChild is used when a module is “lazy” (loads when the module loaded on demand). it has its own injector. specifically, when we want to deliver a provider that is visible only to the “children” modules of our module.
+
+--------------------------------------------------------------------------------------
+pipe ::
+Angular pipes. A pipe takes in data as input and transforms it into an output.
+
+DatePipe: Formats a date value.
+UpperCasePipe: Transforms text to uppercase.
+LowerCasePipe: Transforms text to lowercase.
+CurrencyPipe: Transforms a number to the currency string.
+PercentPipe: Transforms a number to the percentage string. 
+DecimalPipe: Transforms a number into a decimal point string.
+
+ng g pipe <nameofthepipe>
+ng generate pipe <nameofthepipe>
+
+https://www.simplilearn.com/tutorials/angular-tutorial/angular-pipes#using_builtin_angular_pipes
+
+--------------------------------------------------------------------------------------
+guard ::
+Angular route guards are interfaces provided by Angular which, when implemented, allow us to control the accessibility of a route based on conditions provided in class implementation of that interface.
+
+ng g guard auth
+
+https://levelup.gitconnected.com/angular-route-guards-for-authentication-d77fb01f04ae
+
+--------------------------------------------------------------------------------------
+HTTP Interceptor ::
+
+HTTP Interceptors is a special type of angular service that we can implement. It's used to apply custom logic to the central point between the client-side and server-side outgoing/incoming HTTP request and response. Keep in mind that the interceptor wants only HTTP requests.
+
+Operations of HTTP Interceptor ::
+Modify HTTP headers
+Modifying the request body
+Set authentication/authorization token
+Modify the HTTP response
+Error handling
+
+ng generate interceptor headers
+--------------------------------------------------------------------------------------
+Template-driven vs Reactive Forms ::
+
+Template-driven forms make use of the "FormsModule", 
+while reactive forms are based on "ReactiveFormsModule".
+
+Template-driven forms are asynchronous in nature, 
+whereas Reactive forms are mostly synchronous.
+
+In a template-driven approach, most of the logic is driven from the template, 
+whereas in reactive-driven approach, the logic resides mainly in the component or typescript code. 
+
+Reactive Forms are a better default choice for new applications, as they are more powerful and easier to use.
+
+
+
+	

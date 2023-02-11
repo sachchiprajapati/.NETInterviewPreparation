@@ -1,0 +1,205 @@
+
+Depency Injection vc Depency Inversion :
+
+Dependacy Injection Types ::
+Constructor Injection
+Property Injection (aka setter injection)
+Method Injection
+
+
+https://dotnettutorials.net/lesson/setter-dependency-injection-design-pattern-csharp/
+--------------------------------------------------------------------------------------------------------------------- 
+tight coupling and loose coupling ::
+
+Tight coupling means classes and objects are dependent on one another. In general, tight coupling is usually not good because it reduces the flexibility and re-usability of the code while 
+Loose coupling means reducing the dependencies of a class that uses the different class directly.
+
+Tight Coupling means one class is dependent on another class.
+Loose Coupling means one class is dependent on interface rather than class.
+
+In tight coupling, there are hard-coded dependency declared in methods.
+In loose coupling, we must pass dependency externally at runtime instead of hard-coded. (Loose couple systems use interface for decreased dependency with class.)
+---------------------------------------------------------------------------------------------------------------------
+what is export class in angular :
+
+the export keyword lets you declare variables, functions, and classes that the module should be exposed to other scripts. Using the export keyword, you can make selected APIs available to other modules. A module's functions, variables, and classes that aren't explicitly exported remain private to the module.
+
+---------------------------------------------------------------------------------------------------------------------
+reverse string c# :
+
+		string test = "Sachchi";
+        char[] arraychar = test.ToCharArray();
+        string reversestring = string.Empty;
+
+        for (int i = arraychar.Length - 1; i > -1; i--)
+        {
+            reversestring += arraychar[i].ToString();
+        }
+			
+
+chaining in angular :
+
+candidate key in SQL :
+
+---------------------------------------------------------------------------------------------------------------------
+
+encapsulation vs abstarct :
+
+Encapsulation is data hiding(information hiding) while  - using getters and setters
+Abstraction is detail hiding(implementation hiding). - using abstract classes and interfaces
+	
+---------------------------------------------------------------------------------------------------------------------
+why we use singleton design pattern :
+
+Advantages of a Singleton pattern:
+	Singleton pattern can be implemented interfaces.
+	It can be also inherit from other classes.
+	It can be lazy loaded.
+	It has Static Initialization.
+	It can be extended into a factory pattern.
+	It help to It hide dependencies.
+	It provides a single point if access to a particular instance, so it is easy to maintain.
+
+Disadvantages of a Singleton Pattern
+	Unit testing is more difficult (because it introduces a global state into an application).
+	This pattern reduces the potential for parallelism within a program, because to access the singleton in a multi-threaded system, an object must be serialized (by locking).
+
+---------------------------------------------------------------------------------------------------------------------
+Task vs Thread : 
+
+---------------------------------------------------------------------------------------------------------------------
+
+Area in MVC and attribute Routing in area and same Controller in Area can we use ? ::
+
+Areas allows you to separate your modules and organize Model, View, Controller, Web. config and Routing registration file into separate sections.
+
+[RouteArea("AreaName", AreaPrefix = "AreaName")]
+[RoutePrefix("SampleAreaController")]
+public class SampleAreaController : Controller
+{
+    [Route("Index")]
+    public ActionResult Index()
+    {
+        return View();
+    }
+}
+
+For using Url.Action links in Areas :
+@Url.Action("Index", "SampleAreaController", new { area = "AreaName" })
+
+----------------------------------------------------------------------------------------------------------------------------
+SingleOrDefault Vs FirstOrDefault In LINQ ::
+
+List<clsTest> lstTest = new List<clsTest>();
+lstTest.Add( new clsTest { Id = 1, Name = "A" });
+lstTest.Add( new clsTest { Id = 2, Name = "B" });
+lstTest.Add( new clsTest { Id = 3, Name = "C" });
+lstTest.Add( new clsTest { Id = 4, Name = "C" });
+            
+var fod = lstTest.Where(l => l.Name == "C").FirstOrDefault();
+var sod = lstTest.Where(l => l.Name == "C").SingleOrDefault();
+			
+FirstOrDefault returns the first matching record; i.e., the record with Id=3.
+
+SingleOrDefault returns a single specific element of a sequence 
+However, we get the exception given below or the SingleOrDefault - Sequence which contains more than one element. 
+This is because, SingleOrDefault cannot handle the situation, if there are multiple elements with the same name.
+
+
+First() returns the first element of a sequence even there is a single element in that sequence. 
+Single() returns the single element of a sequence and that element should be the exactly a single one. If there are more then one matching elements the exception is thrown.
+----------------------------------------------------------------------------------------------------------------------------
+Select() vs SelectMany() ::
+
+A select operator is used to select value from a collection  
+SelectMany operator is used to selecting values from a collection of collection i.e. nested collection.
+
+List<Demo> listContents = new List<Demo>{
+         new Demo{
+            Name = "Cap",
+            Contents = new List<string> { "Nike", "Adidas" }
+         },
+         new Demo{
+            Name = "Shoes",
+            Contents = new List<string> { "Nike", "Puma", "Adidas" }
+         },
+      };
+	  
+IEnumerable<List<string>> result = listContents.Select(s => s.Contents);
+
+foreach (List<string> stringList in result){
+   foreach (string str in stringList){
+      Console.WriteLine(str);
+   }
+}
+
+IEnumerable<string> resultSelectMany = listContents.SelectMany(s => s.Contents);
+foreach (string str in resultSelectMany){
+   Console.WriteLine(str);
+}	  
+	  
+https://www.dotnettricks.com/learn/linq/difference-between-select-and-selectmany-in-linq	  
+----------------------------------------------------------------------------------------------------------------------------
+
+RESTful Web Services ::
+
+RESTful web services are services that follow REST architecture. 
+REST stands for Representational State Transfer and uses HTTP protocol (web protocol) for implementation. 
+These services are lightweight, provide maintainability, scalability, support communication among multiple applications that are developed using different programming languages. They provide means of accessing resources present at server required for the client via the web browser by means of request headers, request body, response body, status codes, etc
+
+HTTP Verbs ::
+================================================================================================
+REST Verb		Action													Success			Failure
+================================================================================================
+GET				Fetches a record or set of resources from the server	200				404
+OPTIONS			Fetches all available REST operations					200				 –
+POST			Creates a new set of resources or a resource			201	404, 		409
+PUT				Updates or replaces the given record					200, 204		404
+PATCH			Modifies the given record								200, 204		404
+DELETE			Deletes the given resource								200				404
+
+
+PUT vs PATCH ::
+PUT handles updates by replacing the entire entity, 
+while PATCH only updates the fields that you give it. 
+
+If you use the PUT method, then everything will get updated.
+PATCH does not change any of the other values. 
+
+----------------------------------------------------------------------------------------------------------------------------
+ConfigureServices and Configure methods ::
+
+allowing us to register services that we'll want to use in our application
+the Configure method is called where the request pipeline is set up. After all that, our application is up and running and is ready to handle incoming requests
+
+ConfigureServices is used to configure Dependency Injection
+Configure is used to set up middlewares, routing rules, etc
+
+ConfigureServices() takes a parameter of type IServiceCollection.
+Configure() takes a parameter of type IApplicationBuilder with possible parameters of any Service which is registered in the ConfigureServices() method.
+----------------------------------------------------------------------------------------------------------------------------
+
+.net 6 new features 
+
+remove startup.cs => all things now on program.cs file
+support of c# 10 version
+Hot Reload  :: Hot Reload is one of the coolest features added to .NET that allows developers to modify the source code while it is running and visualize these changes in real-time without the need to restart the application. Hot Reload works in both Visual Studio and CLI.
+File-scoped namespace feature
+Long Term Support
+New APIs have been added for HTTP/3, JSON, mathematics, and more.
+Source build enables organizations like Red Hat to build .NET from source and offer their own builds to their users.
+DateOnly and TimeOnly structs
+	var dateNow = new DateOnly(2021, 11, 17);
+	var newDate = dateNow.AddDays(7);
+	var timeNow = new TimeOnly(12, 0, 0);
+	var newTimeNow = timeNow.AddHours(5);
+	
+https://www.c-sharpcorner.com/article/what-is-new-in-net-6-0/	
+
+----------------------------------------------------------------------------------------------------------------------------
+
+SQL Server 2016 Features ::
+
+Temporal tables are history tables which record all data changes, complete with the date and time they occurred.
+
+New built-in JSON support in SQL Server supports JSON imports, exports, parsing and storing.

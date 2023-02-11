@@ -1,0 +1,32 @@
+
+SQL 1: Write Qquery that returns list of employees who are not manager of any other employee.
+Table Name: Employee
+Columns:
+ - EmployeeId
+ - EmployeeName 
+ - ManagerId
+ 
+1, A, 0
+2, B, 1
+3, C, 2
+4, D, 2
+------------
+3, C, 2
+4, D, 2
+
+
+SQL 2: Write query that returns the Employee Name and Annual Salary of each employee 
+order by Annual Salary Bigger to Smaller.
+
+Table A
+Employee Name
+Annual Salary
+
+Table B
+Employee Name
+Monthly Salary
+
+SQL 3:
+Create a table with Primary key(s) and Foreign Key(s) using SQL Lite syntax.
+
+

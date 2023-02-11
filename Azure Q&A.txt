@@ -1,0 +1,18 @@
+
+	
+Azure Functions is a serverless compute service, whereas Azure Logic Apps provides serverless workflows.
+
+Azure Function :: PaaS 
+	Azure Function is a serverless compute service that enables user to run event-triggered code 
+	without having to provision or manage infrastructure. 
+
+Azure Logic Apps :: PaaS
+	Azure Logic Apps is a cloud-based platform for creating and running automated workflows that 
+	integrate your apps, data, services, and systems.
+ 
+Application Insights ::
+	Application Insights is a feature of Azure Monitor that provides extensible application performance management (APM)
+	and monitoring for live web apps. 
+
+Azure Service Bus ::	
+	Azure Service Bus is a messaging service on cloud used to connect any applications, devices, and services running in the cloud to any other applications or services.	

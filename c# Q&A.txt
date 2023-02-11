@@ -1,0 +1,424 @@
+c# : 
+https://codecompiled.com/csharp-interview-questions-answers-experienced
+
+value type vs Reference type : 
+https://www.tutorialsteacher.com/csharp/csharp-value-type-and-reference-type
+
+SQL :
+https://codecompiled.com/sql
+
+webapi :
+https://codecompiled.com/webapi
+
+dotnet-core :
+https://codecompiled.com/dotnet-core
+
+linq :
+https://codecompiled.com/csharp/csharp-linq-tutorial
+
+design-pattern :
+https://codecompiled.com/design-pattern
+
+----------------------------------------------------------------------------------------------------------------------------
+
+What are the design principles used in .NET?
+	SOLID design principles in C# are basic design principles.
+	Net uses the SOLID design principle which includes the following:
+
+	S = Single responsibility principle (SRP) - A class should have only one reason to change.
+	O = Open-Closed Principle (OCP) - Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+	L = Liskov substitution principle (LSP)- It ensures that a derived class does not affect the behavior of the parent class, in other words, that a derived class must be substitutable for its base class. Child class objects should be able to replace parent class objects without compromising application integrity
+	I = Interface segregation principle (ISP) - that clients should not be forced to implement interfaces they don't use. 
+		Instead of one fat interface, many small interfaces are preferred based on groups of methods, each one serving one submodule.
+	D = Dependency inversion principle (DIP) - High-level modules/classes should not depend on low-level modules/classes. Both should 
+		depend on abstractions.
+		Abstractions should not depend on details. Details should depend on abstractions.
+	
+	https://www.c-sharpcorner.com/UploadFile/damubetha/solid-principles-in-C-Sharp/
+	
+----------------------------------------------------------------------------------------------------------------------------
+
+difference between DLL and EXE :::	
+	.EXE files are single outbound files that cannot be shared with other applications.
+	DLL files are multiple inbound files that are shareable.
+	
+----------------------------------------------------------------------------------------------------------------------------		
+.NET Core vs .NET Framework :::
+	.Net Core is open-source.
+	.Net Framework is not open-source. It is more of a community-developed software project.
+	
+	.Net Core follows the principle of build-once-run-anywhere. Thus, it is cross-platform. It supports Windows, MacOS and Linux platforms. 
+	 You can build your application on any platform and run it on another.
+	.Net Framework is majorly used to develop Windows-based applications.
+	
+	.Net Core focuses more on Web, Windows Mobile, and Windows Store applications. Currently, it does not support Desktop application development.
+	.Net Framework is used to build both Desktop as well as Web applications. Windows Forms and WPF applications are very well supported.
+	
+	.Net Core has support for microservices. .Net Core allows a mix of technologies that can be minimalized for each microservice.
+	.Net Framework does not support the creation and deployment of microservices in different languages.
+	
+	.Net Core has no support for WCF services. You would always need to create a REST API.
+	.Net Framework is an excellent choice when WCF services are involved. It also supports REST services.
+	
+	.Net Core supports a very lightweight CLI for all platforms.There is always an option to switch to an IDE as well.
+	.Net Framework is too heavy for Command Line Interface. Some developers prefer working on CLI rather than an IDE.
+
+
+Microservices are small, modular, and independently deployable services.
+----------------------------------------------------------------------------------------------------------------------------
+
+What is the difference between managed and unmanaged code?
+	Code that executes under CLR execution environment is called as managed code. Unmanaged code 
+	executes outside CLR boundary. Unmanaged code is nothing but code written in C++ , VB6 , VC++ etc. 
+	Unmanaged codes have their own environment in which the code runs and it’s completely outside the 
+	control of CLR. 
+	
+What is a garbage collector? 
+	Garbage collector is a feature of CLR which cleans unused managed (it does not clean unmanaged objects) 
+	objects and reclaims memory. It’s a back ground thread which runs continuously checks if there are any 
+	unused objects whose memory can be claimed. 	
+	
+	
+clean unmanaged code :	
+
+.NET framework introduced some good ways to handle unmanaged object's memory deallocation such as ::
+1) using block
+2) Dispose Method.
+3) Finalize.
+----------------------------------------------------------------------------------------------------------------------------	
+ref vs out ::
+It is necessary the parameters should initialize before it pass to ref.
+It is not necessary to initialize parameters before it pass to out.
+
+Passing a parameter value by Ref is useful when the called method is also needed to modify the pass parameter.
+Declaring a parameter to an out method is useful when multiple values need to be returned from a function or method.
+
+It is not compulsory to initialize a parameter value before using it in a calling method.
+A parameter value must be initialized within the calling methosd before its use.
+
+When we use REF, data can be passed bi-directionally.
+When we use OUT data is passed only in a unidirectional way (from the called method to the caller method).
+
+class GFG {
+    static public void Main()
+    { 
+        // Declaring variable without assigning value
+        int G;
+  
+        // Pass variable G to the method using out keyword
+        Sum(out G);
+  
+        // Display the value G
+        Console.WriteLine("The sum of" +  " the value is: {0}", G);
+    }
+  
+    // Method in which out parameter is passed and this method returns the value of the passed parameter
+    public static void Sum(out int G)
+    {
+        G = 80;
+        G += G;
+    }
+}
+O/p :: The sum of the value is: 160
+
+class GFG {
+    public static void Main()
+    {
+        // Assign string value
+        string str = "Geek";
+  
+        // Pass as a reference parameter
+        SetValue(ref str);
+  
+        // Display the given string
+        Console.WriteLine(str);
+    }
+  
+    static void SetValue(ref string str1)
+    {
+        // Check parameter value
+        if (str1 == "Geek") {
+            Console.WriteLine("Hello!!Geek");
+        }
+  
+        // Assign the new value of the parameter
+        str1 = "GeeksforGeeks";
+    }
+}
+O/p::
+Hello!!Geek
+GeeksforGeeks
+
+https://www.geeksforgeeks.org/difference-between-ref-and-out-keywords-in-c-sharp/
+----------------------------------------------------------------------------------------------------------------------------	
+var vs dynamic ::
+
+The variables are declared using var keyword are statically typed.
+The variables are declared using dynamic keyword are dynamically typed.
+
+The type of the variable is decided by the compiler at compile time.
+The type of the variable is decided by the compiler at run time.
+
+If the variable does not initialized it throw an error.	
+If the variable does not initialized it will not throw an error.
+
+It support intelliSense in visual studio.	
+It does not support intelliSense in visual studio
+
+var myvalue = 10; // statement 1
+myvalue = “GeeksforGeeks”; // statement 2
+Here the compiler will throw an error because the compiler has already decided the type of the myvalue variable using statement 1 that is an integer type. When you try to assign a string to myvalue variable, then the compiler will give an error because it violating safety rule type.
+
+dynamic myvalue = 10; // statement 1
+myvalue = “GeeksforGeeks”; // statement 2
+Here, the compiler will not throw an error though the type of the myvalue is an integer. When you assign a string to myvalue it recreates the type of the myvalue and accepts string without any error.
+
+https://www.geeksforgeeks.org/difference-between-var-and-dynamic-in-c-sharp/
+----------------------------------------------------------------------------------------------------------------------------
+
+Task vs Thread ::
+
+A Task represents some asynchronous operation and is part of the Task Parallel Library, a set of APIs for running tasks asynchronously and in parallel.
+The Thread class is used for creating and manipulating a thread in Windows. 
+
+The task can return a result. 
+There is no direct mechanism to return the result from a thread.
+
+Task supports cancellation through the use of cancellation tokens. But Thread doesn't.
+
+A task can have multiple processes happening at the same time. 
+Threads can only have one task running at a time.
+
+Thread thread = new Thread(new ThreadStart(fun1));  
+thread.Start();  
+
+Task<string> obTask = Task.Run(() => (  
+        return“ Hello”));  
+    Console.WriteLine(obTask.result);  
+
+https://www.c-sharpcorner.com/article/task-and-thread-in-c-sharp/#:~:text=Differences%20Between%20Task%20And%20Thread,-Here%20are%20some&text=The%20Thread%20class%20is%20used%20for%20creating%20and%20manipulating%20a,task%20can%20return%20a%20result.
+----------------------------------------------------------------------------------------------------------------------------
+IEnumrable vs List ::
+
+IEnumerable is an interface, while List is a concrete class. 
+
+IEnumerable will not execute the query until you enumerate over the data, 
+whereas List will execute the query as soon as it's called. Deferred execution makes IEnumerable faster because it only gets the data when needed.
+
+IEnumerable is more efficient and faster when you only need to enumerate the data once.
+The List is more efficient when you need to enumerate the data multiple times because it already has all of it in memory.
+
+https://josipmisko.com/posts/c-sharp-ienumerable-vs-list
+----------------------------------------------------------------------------------------------------------------------------
+IQueryable<EmployeeDetail> empDetail = dbContext.EmployeeDetails.Where(emp => emp.Employee_Name.StartsWith("j"));    
+var result = empDetail.Take(2);    
+
+IEnumerable<EmployeeDetail> empDetail = dbContext.EmployeeDetails.Where(emp => emp.Employee_Name.StartsWith("j"));    
+var result = empDetail.Take(2);   
+	
+IQuerable interface ::
+
+=> it exists in System.Collections namespace.
+=> IQueryable is best suitable for LINQ to SQL Conversion.
+=> It supports custom query and lazzy loading.
+=> IQueryable executes a query on a server with all filter conditions on server-side and gets the records which are matching with the filter condition.
+
+IEnumerable interface ::
+=> IEnumerable filters did not execute on server side and it fetched all the records which are matching all conditions. 
+=> In the above query, the .Take(2) filter was not applied on server side. The SQL query gets all records which match to the where condition. 
+   So, the filter is not applied on the server side but first, it fetches all the records from the server and applies on the client side.
+
+
+IList <T> interface ::
+=> The IList interface is useful when you want to perform any operation like get item, add a new item, or remove an item at a specific index from the collection.
+----------------------------------------------------------------------------------------------------------------------------
+
+Typeof vs gettype  ::
+
+typeof keyword takes the Type itself as an argument and returns the underline Type of the argument. It is calculated at compile time and thus cannot be used on an instance,which is created at runtime. 
+GetType() can only be invoked on the instance of the type.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+abstact class vs interface  ::
+
+It contains both declaration and definition part.	
+It contains only a declaration part.
+
+Multiple inheritance is not achieved by abstract class.	
+Multiple inheritance is achieved by interface.
+
+It contain constructor.	
+It does not contain constructor.
+
+It can contain static members.	
+It does not contain static members.
+
+It can contain different types of access modifiers like public, private, protected etc.	
+It only contains public access modifier because everything in the interface is public.
+
+The performance of an abstract class is fast.	
+The performance of interface is slow because it requires time to search actual method in the corresponding class.
+
+It is used to implement the core identity of class.	
+It is used to implement peripheral abilities of class.
+
+A class can only use one abstract class.	
+A class can use multiple interface.
+
+Abstract class can contain methods, fields, constants, etc.	
+Interface can only contains methods, properties, indexers, events.
+
+It can be fully, partially or not implemented.	
+It should be fully implemented.
+
+https://www.geeksforgeeks.org/difference-between-abstract-class-and-interface-in-c-sharp/
+----------------------------------------------------------------------------------------------------------------------------
+
+nullable ::
+C# 2.0 introduced nullable types that allow you to assign null to value type variables.
+
+Nullable<int> i = null;
+int? i = null;
+double? D = null;
+
+----------------------------------------------------------------------------------------------------------------------------
+Constant vs Readonly vs Static Keywords ::
+
+static variables can be modified whereas constant variables can't be modified once it declared
+
+constant ::
+	Compile-time constant
+	Can't be declared static
+	Can't be modified or changed
+	Can be of any type of Access Modifier
+	Local scope
+	Needs to get initialized
+	Declared at the time of declaration
+	
+	When to use const ::
+	Const is a compile-time constant, and We could use the const keyword when the variables are primitive types and their value will never change. If we change the value of the const variable, then we have to recompile the project.
+
+Readonly ::
+	Run-time constant
+	It can be static
+	Global scope
+	Can be declared in the constructor class
+	Generally public
+	The keyword readonly has a value that may be changed or assigned at runtime, but only through the non-static constructor. 
+	
+	When to use readonly ::
+	We could use a readonly variable when we have to initialize the variable during the class construction and then will never be changed later on.
+	
+static ::
+	Can't be used with indexers
+	Works with constructors too
+	By default it is private
+	Can be parameterized or public too
+	If its applied to a class then all the class members need to be static
+	
+https://www.c-sharpcorner.com/UploadFile/2072a9/constant-vs-readonly-vs-static-keywords-in-C-Sharp/	
+
+https://enlear.academy/const-vs-readonly-vs-static-readonly-in-c-755c20aa0b57
+
+----------------------------------------------------------------------------------------------------------------------------
+Can we write private class in C#?
+No, there isn't. You cannot have a private class unless it is nested.
+----------------------------------------------------------------------------------------------------------------------------
+
+ExecuteNonQuery:
+ExecuteNonQuery method is used to execute SQL Command or the storeprocedure performs, INSERT, UPDATE or Delete operations. It doesn't return any data from the database. Instead, it returns an integer specifying the number of rows inserted, updated or deleted.
+
+Executescalar:
+ExecuteScalar method is used to execute SQL Commands or storeprocedure, after executing return a single value from the database. It also returns the first column of the first row in the result set from a database.
+
+ExecuteReader:
+ExecuteReader method is used to execute a SQL Command or storedprocedure returns a set of rows from the database.
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Sealed Class Example :
+		https://interviewsansar.com/real-time-example-of-sealed-class-and-method-in-c/
+
+----------------------------------------------------------------------------------------------------------------------------
+Extension Methods ::
+
+Extension method allows you to add a new method to any existing type/class which were not part of the class. 
+Extension method will help developer to extend the functionality of existing type without creating a new derived type, without changing existing type or without modifying existing type/orignal type.	
+
+In C# we already have some built-in extension methods like Union, Where and Zip. These extension methods need a System.Linq namespace declaration
+
+public static class ExtensionMethods
+    {
+        public static string StringToUpper(this string input)
+        {
+            return input.ToUpper();
+        }
+    }
+	
+O/p Way 1 ::
+		string str = "test";
+        string data = str.StringToUpper();
+
+O/p Way 2 ::
+        string data = ExtensionMethods.StringToUpper("test");
+----------------------------------------------------------------------------------------------------------------------------
+
+value type vs reference type ::
+
+value type ::
+it holds a data value within its own memory space. It means the variables of these data types directly contain values.
+value type:
+bool 	byte	char	decimal		double		enum	float
+int		long	sbyte	short		struct		uint	ulong	ushort
+
+
+Reference type ::
+Reference type doesn't store its value directly. Instead, it stores the address where the value is being stored. In other words, a reference type contains a pointer to another memory location that holds the data.
+
+reference type data types:
+String			Class			Delegate
+Arrays (even if their elements are value types)
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Serialization ::
+
+Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
+
+Type of Serialization ::
+Binary Serialization
+XML Serialization
+JSON Serialization
+
+----------------------------------------------------------------------------------------------------------------------------
+this keyword ::
+
+The this keyword refers to the current instance of the class and is also used as a modifier of the first parameter of an extension method.
+
+----------------------------------------------------------------------------------------------------------------------------
+Call By value and call by reference ::
+the Call by Value method, there is no modification in the original value. In the Call by Reference method, there is a modification in the original value.
+
+----------------------------------------------------------------------------------------------------------------------------
+The virtual keyword :: in C# is used to override the base class member in its derived class based on the requirement.
+
+The virtual keyword is used to modify a method, property, indexer, or event declaration and allow for it to be overridden in a derived class.
+----------------------------------------------------------------------------------------------------------------------------
+iis application pool ::
+Application pools in Internet Information Services (IIS) is a mechanism designed to comprise a group of web applications corresponding to one or more worker processes (w3wp.exe) sharing a common configuration.
+
+----------------------------------------------------------------------------------------------------------------------------
+Session and cookie ::
+Cookies are client-side files that are stored on a local computer and contain user information. 
+Sessions are server-side files that store user information. which transfer or access data between page call
+
+----------------------------------------------------------------------------------------------------------------------------
+partial class ::
+It provides a special ability to implement the functionality of a single class into multiple files and all these files are combined into a single class file when the application is compiled. 
+A partial class is created by using a partial keyword.
+
+----------------------------------------------------------------------------------------------------------------------------
+startup class in .NET core ? :: 
+The Startup class contains the ConfigureServices and Configure methods. While the former is used to configure the required services, the latter is used to configure the request processing pipeline. The Configure method is executed immediately after the ConfigureServices method

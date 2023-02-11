@@ -1,0 +1,276 @@
+
+OOPs Concepts
+Why OOPs is importanat ? 
+	OOP is faster and easier to execute. 
+	OOP provides a clear structure for the programs. 
+	OOP helps to keep the C# code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug.
+	OOP makes it possible to create full reusable applications with less code and shorter development time.
+	
+what is dependancy injection  ::
+	ASP.NET Core supports the dependency injection (DI) software design pattern, which is a technique for achieving Inversion of Control (IoC) between classes and their dependencies.
+	
+	DI is a software design pattern that allows us to develop loosely coupled code. 
+	DI is a great way to reduce tight coupling between software components. 
+	DI also enables us to better manage future changes and other complexity in our software. 
+	The purpose of DI is to make code maintainable.
+
+What is Dependancy Inversion ::
+	The Dependency Inversion Principle (DIP) states that a high-level class must not depend upon a lower level class. They must both depend upon abstractions. And, secondly, an abstraction must not depend upon details, but the details must depend upon abstractions.
+--------------------------------------------------------------------------------------
+	
+Microservice Create ::
+https://dotnettutorials.net/lesson/microservices-using-asp-net-core/#:~:text=Creating%20Microservices%20in%20ASP.NET%20core,-We%20will%20build&text=We%20need%20to%20install%20Visual,is%20enough%20for%20learning%20purposes.	
+--------------------------------------------------------------------------------------
+
+static vs singleton class
+	A Static Class cannot be extended whereas a singleton class can be extended.
+	A Static Class cannot be initialized whereas a singleton class can be.
+	A Static class is loaded automatically by the CLR when the program containing the class is loaded.
+	We can implement an interface with a Singleton class, but static class cannot.
+	
+SingleTon Class ::
+public sealed class Singleton
+{
+    private static int counter = 0;
+    private static Singleton instance = null;
+    
+	public static Singleton GetInstance
+    {
+        get
+        {
+            if (instance == null)
+                instance = new Singleton();
+            return instance;
+        }
+    }
+    
+    private Singleton()
+    {
+        counter++;
+        Console.WriteLine("Counter Value " + counter.ToString());
+    }
+
+    public void PrintDetails(string message)
+    {
+        Console.WriteLine(message);
+    }
+}
+
+access methods ::
+Singleton fromTeachaer = Singleton.GetInstance;
+fromTeachaer.PrintDetails("From Teacher");
+Singleton fromStudent = Singleton.GetInstance;
+fromStudent.PrintDetails("From Student");
+	
+--------------------------------------------------------------------------------------
+what is middleware in .Net Core ::
+
+Middleware is a layer, software, or simple class through which all the requests and responses have to go through. 
+Middleware is software that's assembled into an app pipeline to handle requests and responses.
+
+
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-6.0
+https://www.c-sharpcorner.com/article/overview-of-middleware-in-asp-net-core/
+
+Middleware components for common app scenarios:
+
+if (env.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseDatabaseErrorPage();
+}
+else
+{
+    app.UseExceptionHandler("/Error"); //This middleware is catches exceptions thrown in production environment.
+    app.UseHsts();	// The default HSTS value is 30 days. You may want to change this for production scenarios  						
+}
+app.UseHttpsRedirection();	//This middleware is used to redirects HTTP requests to HTTPS.  
+app.UseStaticFiles();	//This middleware is used to returns static files and short-circuits further request processing.   
+app.UseCookiePolicy();
+app.UseRouting();	 //This middleware is used to route requests.   
+app.UseCors();
+app.UseAuthentication();
+app.UseAuthorization();	//This middleware is used to authorizes a user to access secure resources.
+app.UseSession();
+app.UseMiddleWare<CustomMiddleware>();
+app.UseEndpoints(endpoints =>    			//This middleware is used to add Razor Pages endpoints to the request pipeline.
+    {    
+        endpoints.MapRazorPages();               
+    }); 	
+
+It is software that is injected into the application pipeline to handle requests and responses. 
+They are just like chained to each other and form as a pipeline. The incoming requests are passed through this pipeline where all middleware is configured, and middleware can perform some action on the request before passing it to the next middleware. 
+Same as for the responses, they are also passing through the middleware but in reverse order.
+
+--------------------------------------------------------------------------------------
+
+non clustered index on insert update delete - performance
+
+--------------------------------------------------------------------------------------
+
+.net core main banifit - why .NET core introduces ::
+https://www.interviewbit.com/blog/net-core-vs-net-framework/
+--------------------------------------------------------------------------------------
+early binding and late bindings ::
+Early Binding
+It recognizes and checks the methods, or properties during compile time. In this binding, the compiler already knows about what kind of object it is and what are the methods or properties it holds, here the objects are static objects. The performance of early binding is fast and it is easy to code. It decreases the number of run-time errors.
+
+Late Binding
+In late binding, the compiler does not know about what kind of object it is and what are the methods or properties it holds, here the objects are dynamic objects. The type of the object is decided on the bases of the data it holds on the right-hand side during run-time. Basically, late binding is achieved by using virtual methods. The performance of late binding is slower than early binding because it requires lookups at run-time.
+
+--------------------------------------------------------------------------------------
+
+array vs arraylist::
+int[] arr = new int[4];
+arr[0] = 47;
+arr[1] = 77;
+arr[2] = 87;
+arr[3] = 97;
+		
+ArrayList al = new ArrayList();
+al.Add("Ajay");
+al.Add("Ankit");
+al.Add(10);
+al.Add(10.10);
+		
+Memory :
+This has fixed size and can’t increase or decrease dynamically.	
+Size can be increase or decrease dynamically.
+
+Namespace:	
+Arrays belong to System.Array namespace	
+ArrayList belongs to System.Collection namespace.
+
+Data Type:	
+In Arrays, we can store only one datatype either int, string, char etc.	
+In ArrayList we can store different datatype variables.
+
+Operation Speed:	
+Insertion and deletion operation is fast.	
+Insertion and deletion operation in ArrayList is slower than an Array.
+
+Typed:	
+Arrays are strongly typed which means it can store only specific type of items or elements.	
+ArrayList are not strongly typed.
+
+null:	
+Array cannot accept null.	
+ArrayList can accepts null.
+
+--------------------------------------------------------------------------------------
+why we cannot call SP from function ::
+You cannot execute a stored procedure inside a function, 
+because a function is not allowed to modify database state, and stored procedures are allowed to modify database state.
+
+--------------------------------------------------------------------------------------
+
+multiple transaction in SQL ::
+
+If the outer transaction is committed, the inner nested transactions are also committed. 
+If the outer transaction is rolled back, then all inner transactions are also rolled back, regardless of whether or not the inner transactions were individually committed.
+
+--------------------------------------------------------------------------------------
+method overriding example 
+https://www.geeksforgeeks.org/c-sharp-method-overriding/
+
+--------------------------------------------------------------------------------------
+
+code first, database first and model first
+
+Code First Approach ::
+----------------------
+It is very popular approach between MVC programmers. It has full control over the code rather than database activity. Using this approach we can do all the database activity from the code. So, we can say manual changes to database have been lost to use this and everything is depended on the code.
+In this you need to create POCO entities as data model.
+
+Database First Approach ::
+----------------------
+If you have already a designed database and you don’t want to do extra effort then you can go with this approach. If your database is ready then Entity Framework will complete his duty and create POCO entities for you with T4 template.
+You can modify the database manually and update model from database. So, we can say, entity framework is able to create your model classes based on tables and columns from relational database.
+
+Model First Approach ::
+----------------------
+In this approach, you need to draw your model first and let workflow to decide to generate your database. If you are going to work with small project then it will be best. You cannot make manual change into database because of you don’t have command on database, but you can made the changes into model classes.
+So, using the entity framework designer, you can create your model classes and based on your model classes your database will be generated.
+--------------------------------------------------------------------------------------
+Eager Loading and Lazy Loading into Entity Framework ::
+
+Eager Loading ::
+Eager Loading helps you to load all your needed entities at once; i.e., all your child entities will be loaded at single database call. 
+This can be achieved, using the Include method, which returs the related entities as a part of the query and a large amount of data is loaded at once.
+
+User usr = dbContext.Users.Include(a => a.UserDetails).FirstOrDefault(a => a.UserId == userId);
+User usr = dbContext.Users.Include(a => a.UserDetails.Select(ud => ud.Address)).FirstOrDefault(a => a.UserId == userId);
+-------------------------------
+
+Lazy Loading ::
+It is the default behavior of an Entity Framework, where a child entity is loaded only when it is accessed for the first time. It simply delays the loading of the related data, until you ask for it.
+
+User usr = dbContext.Users.FirstOrDefault(a => a.UserId == userId);  
+
+It will only be loaded when you explicitly call for it, as shown below. 
+UserDeatils ud = usr.UserDetails; // UserDetails are loaded here   
+
+disable Lazy Loading ::
+this.Configuration.LazyLoadingEnabled = false;
+-------------------------------
+
+Explicit Loading
+
+There are options to disable Lazy Loading in an Entity Framework. After turning Lazy Loading off, you can still load the entities by explicitly calling the Load method for the related entities. There are two ways to use Load method Reference (to load single navigation property) and Collection (to load collections), as shown below. 
+
+User usr = dbContext.Users.FirstOrDefault(a => a.UserId == userId);  
+dbContext.Entry(usr).Reference(usr => usr.UserDetails).Load();   
+
+https://www.c-sharpcorner.com/article/eager-loading-lazy-loading-and-explicit-loading-in-entity-framework/
+--------------------------------------------------------------------------------------
+ADO.NET
+ 
+ADO.NET is a set of classes (a framework) to interact with data sources such as databases and XML files.
+ADO is the acronym for ActiveX Data Objects. It allows us to connect to underlying data or databases. 
+It has classes and methods to retrieve and manipulate data.
+
+--------------------------------------------------------------------------------------
+TDD and BDD ::
+
+Test Driven Development (TDD) ::
+
+TDD has the following steps:
+	Think & write test cases.
+	Red – Failure of test case.
+	Green – Code and get the new test case pass.
+	Green – Ensure all old test cases also pass.
+	Refactor the code to clean it.
+	Repeat this cycle.
+
+Behaviour-Driven Development (BDD) ::
+
+Behavior-Driven Development (BDD) is an Agile approach that mixes requirement gathering, documentation and acceptance testing.
+
+--------------------------------------------------------------------------------------
+String and Stringbuilder in C# ::
+
+String ::
+String is immutable, Immutable means if you create string object then you cannot modify it and 
+It always create new object of string type in memory.
+
+Stringbuilder ::
+StringBuilder is mutable, means if create string builder object then you can perform any operation like insert, replace or append 
+without creating new instance for every time.it will update string at one place in memory doesnt create new space in memory.
+
+--------------------------------------------------------------------------------------
+
+A Web API controller action can return any of the following:
+
+void
+HttpResponseMessage
+IHttpActionResult
+IActionResult
+IEnumerable
+IAsyncEnumerable
+Some other type
+
+By default Web API returns result in XML format
+
+Some common return types in this category are ::
+BadRequestResult (400), NotFoundResult (404), and OkObjectResult (200). 
+
