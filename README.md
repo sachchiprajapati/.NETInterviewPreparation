@@ -1,1 +1,1 @@
-# Interview Prepation Questions and Answers for .NET Professionals
+# Interview Preparation Questions and Answers for .NET Professionals
