@@ -309,7 +309,7 @@ These contents get projected in to a reserved tag by name “ng-content”
 Explain Content projection Slot?
 -----------------------------------
 Content projection slot helps to project specific content to specific "<ng-content>" tag section..
-So if we have two “ng-content” sections in the contained component and from the parent component we want to project specific content to specific “ng-content” tags then we  need to define Content projection slots.
+So if we have two “ng-content” sections in the contained(child) component and from the parent component we want to project specific content to specific “ng-content” tags then we  need to define Content projection slots.
 
 Component1 :::::::::
 <comp2>
@@ -376,6 +376,9 @@ what is environment.ts file
 -------------------------------
 It’s the global configuration file. If we have any global variables, we can declare it in this file and use it in all over the project.
 By default we will get two environment files. One for development and another one for production.
+
+after creating new environment.uat.ts file we must have to configure this file related settings into angular.json file
+
 
 validations
 -------------
@@ -490,5 +493,9 @@ whereas in reactive-driven approach, the logic resides mainly in the component o
 Reactive Forms are a better default choice for new applications, as they are more powerful and easier to use.
 
 
+--------------------------------------------------------------------------------------
+		
+Angular Route Resolver ::
 
-	
+Angular Route Resolver is used for pre-fetching some of the data when the user is navigating from one route to another. 
+It can be defined as a smooth approach for enhancing user experience by loading data before the user navigates to a particular component.

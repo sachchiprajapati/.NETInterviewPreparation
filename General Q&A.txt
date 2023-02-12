@@ -118,6 +118,7 @@ It recognizes and checks the methods, or properties during compile time. In this
 Late Binding
 In late binding, the compiler does not know about what kind of object it is and what are the methods or properties it holds, here the objects are dynamic objects. The type of the object is decided on the bases of the data it holds on the right-hand side during run-time. Basically, late binding is achieved by using virtual methods. The performance of late binding is slower than early binding because it requires lookups at run-time.
 
+https://www.learncsharptutorial.com/latebinding-earlybinding.php
 --------------------------------------------------------------------------------------
 
 array vs arraylist::

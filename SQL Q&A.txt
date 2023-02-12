@@ -226,7 +226,7 @@ The value for the Candidate key is unique and non-null for all tuples. And every
 	varchar will be quicker
 	The real reason you want to use NVARCHAR is when you have different languages in the same column
 	
---> Diff betwenn #temp , @temp variabl @cte
+--> Diff between #temp, ##temp, @table variabl @cte
 	
 	#temp : 
 	
@@ -373,8 +373,7 @@ SELECT * FROM Person.Contact WITH (NOLOCK) WHERE ContactID < 20
 	Create indexes for tables and adhere to the standards.
 
 
---> A SQL injection is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious 
-    code to a database query. 
+--> A SQL injection is a technique that attackers use to gain unauthorized access to a web application database by adding a string of malicious code to a database query. 
 	
 
 --> Find Duplicate Rows ::
@@ -555,3 +554,13 @@ DROP ::
 	DROP TABLE Customers ; 
 	
 DELETE operations can be rolled back (undone), while DROP and TRUNCATE operations cannot be rolled back	
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Difference between numeric, float and decimal :: 
+
+Float is Approximate-number data type, which means that not all values in the data type range can be represented exactly.
+
+Decimal/Numeric is Fixed-Precision data type, which means that all the values in the data type range can be represented exactly with precision and scale. You can use decimal for money saving.
+
+DECIMAL(2,2) and DECIMAL(2,4) ==> 11.22 and 11.2222 

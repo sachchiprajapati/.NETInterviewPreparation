@@ -135,6 +135,8 @@ Bundling and minification :
 	Bundling reduces the number of requests to the Server, whereas Minification reduces the size of the requested assets.
 	
 Filters :
+	Filter is a custom class where you can write custom logic to execute before or after an action method executes.
+	
 	If I want to implement some logic either prior to the execution of the action method or right after it. In that scenario, the Action Filters are used. Filters are used to determine the logic needed for executing before or after the action method gets executed. Action methods make use of the action filters as an attribute. 
 
 	https://www.c-sharpcorner.com/UploadFile/0ef46a/filters-in-mvc/

@@ -6,8 +6,8 @@ Constructor Injection
 Property Injection (aka setter injection)
 Method Injection
 
-
 https://dotnettutorials.net/lesson/setter-dependency-injection-design-pattern-csharp/
+
 --------------------------------------------------------------------------------------------------------------------- 
 tight coupling and loose coupling ::
 
