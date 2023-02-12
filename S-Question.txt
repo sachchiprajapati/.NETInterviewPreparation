@@ -8,7 +8,7 @@ database - sql datatypes
 microserice architecture 
 wcf                            	---- Remaining
 security (algoritham and ssl)	---- Remaining
-threading 						---- Remaining
+threading 						---- Remaining   ---- means parallel work or code execution
 job scheduling -- hangfire , window service , timer trigger AZ function
 identity server 
 rabbit mq  ---msmq --- two micoservice connect ... http, srvice bus 
