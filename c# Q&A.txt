@@ -83,8 +83,8 @@ clean unmanaged code :
 
 .NET framework introduced some good ways to handle unmanaged object's memory deallocation such as ::
 1) using block
-2) Dispose Method.
-3) Finalize.
+2) Dispose Method
+3) Finalize
 ----------------------------------------------------------------------------------------------------------------------------	
 ref vs out ::
 It is necessary the parameters should initialize before it pass to ref.
@@ -388,7 +388,7 @@ Serialization ::
 Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
 
 Type of Serialization ::
-Binary Serialization
+Binary Serialization 
 XML Serialization
 JSON Serialization
 
@@ -422,3 +422,7 @@ A partial class is created by using a partial keyword.
 ----------------------------------------------------------------------------------------------------------------------------
 startup class in .NET core ? :: 
 The Startup class contains the ConfigureServices and Configure methods. While the former is used to configure the required services, the latter is used to configure the request processing pipeline. The Configure method is executed immediately after the ConfigureServices method
+
+----------------------------------------------------------------------------------------------------------------------------
+Race Consition ::
+A race condition occurs when two or more threads are able to access shared data and they try to change it at the same time. Because the thread scheduling algorithm can swap between threads at any point, we cannot know the order at which the threads will attempt to access the shared data. Therefore, the result of the change in data is dependent on the thread scheduling algorithm, i.e. both threads are 'racing' to access/change the data. The reason for having more race conditions among threads than processes is that threads can share their memory while a process can not.

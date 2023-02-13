@@ -49,7 +49,7 @@ Brotli Compression
 Remove OPTION call (preflight call) - Deploy .net core API inside the Angular App in IIS
 Copy files in Compressed folder after Post-Build
 signalR in Angular with .NET Core
-Refresh Token in Angular with .NET core
+Refresh Token in Angular with .NET core -- A refresh token is a special token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires.
 
 
 =====================================================================================================================
@@ -61,8 +61,7 @@ https://www.c-sharpcorner.com/article/microservice-using-asp-net-core/
 
 
 ------------------------------------------------------------------------
-Multithreading in C# is a process in which multiple threads work simultaneously. It is a process to achieve multitasking. It saves time because multiple tasks are being executed at a time. To create multithreaded application in C#, we need to use System.
-
+Multithreading in C# is a process in which multiple threads work simultaneously. It is a process to achieve multitasking. It saves time because multiple tasks are being executed at a time. To create multithreaded application in C#, we need to use System.Threding namespace
 
 A thread is defined as the execution path of a program. Each thread defines a unique flow of control. If your application involves complicated and time consuming operations, then it is often helpful to set different execution paths or threads, with each thread performing a particular job.
 

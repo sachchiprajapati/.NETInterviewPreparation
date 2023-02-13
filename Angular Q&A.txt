@@ -131,6 +131,8 @@ export class SalesComponent
 @injectable menas this class can be inject in DI
 @Input , @Output Decorator ,@viewchild ,@viewchildren
 
+@Input() - parent component send(update) data in the child component.
+@Output -  child component send data to a parent component.
 
 What is templateURL in Angular
 ---------------------------
@@ -272,8 +274,8 @@ If you want to write  clean up code when the component is unloading then we have
 
 https://www.c-sharpcorner.com/article/life-cycle-of-angular-components/#:~:text=In%20Angular%2C%20every%20component%20has,called%20life%20cycle%20hook%20events.
 
-ngOnChanges
-ngOnInit
+ngOnChanges - used to detect modifications of input properties in angular programming. 
+ngOnInit - called by Angular to indicate that Angular is done with initializing the component.
 ngDoCheck
 ngAfterContentInit
 ngAfterContentChecked
@@ -492,10 +494,16 @@ whereas in reactive-driven approach, the logic resides mainly in the component o
 
 Reactive Forms are a better default choice for new applications, as they are more powerful and easier to use.
 
-
 --------------------------------------------------------------------------------------
 		
 Angular Route Resolver ::
 
 Angular Route Resolver is used for pre-fetching some of the data when the user is navigating from one route to another. 
 It can be defined as a smooth approach for enhancing user experience by loading data before the user navigates to a particular component.
+
+--------------------------------------------------------------------------------------
+
+Angular 14 Features :: 
+Standalone components, directives, and pipes
+Typed Angular forms
+Streamlined page title accessibility

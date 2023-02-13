@@ -349,7 +349,7 @@ SELECT * FROM Person.Contact WITH (NOLOCK) WHERE ContactID < 20
 	duplicate aggregation
 
 	try to do index seek not index scan 
-	 for that follow some rules 
+	for that follow some rules 
 	--- Order of indexes matters , no of column in index and select queries matters
 
 	Hashmatch : check whether missing index add it or some time index in there then we have to use in where conditions 

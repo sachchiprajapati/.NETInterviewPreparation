@@ -275,3 +275,13 @@ By default Web API returns result in XML format
 Some common return types in this category are ::
 BadRequestResult (400), NotFoundResult (404), and OkObjectResult (200). 
 
+
+--------------------------------------------------------------------------------------
+
+ElasticSearch
+Elasticsearch is an open source database that is well suited to indexing logs and analytical data.
+
+Kibana
+Kibana is an open source data visualization user interface which is used with Elasticsearch database.
+
+Serilog is a third-party, open-source library that integrates nicely with ASP.NET Core and allows developers to easily log-structured event data to the console, to files, and various kinds of log targets. 
