@@ -95,3 +95,25 @@ OAuth 2.0 is the industry-standard protocol for authorization.
 
 WCF ::
 Windows Communication Foundation (WCF) is a framework for building service-oriented applications. Using WCF, you can send data as asynchronous messages from one service endpoint to another. A service endpoint can be part of a continuously available service hosted by IIS, or it can be a service hosted in an application.
+
+
+------------------------------------------------------------------------
+
+IV Client Questions ::
+Types of OOP's concepts. Give only all the types name
+override vs over loading
+Transient vs Scoped vs Singleton
+Directives in angular and it's types
+How can we prevent the class to be inherit by other class ? 
+Difference between static class and normal class
+Can we use multiple database in one application ? like SQL, Oracle
+Types of join in SQL
+Difference between Inner join and Self Join
+What is dependacy Injection ?
+How many way we can inject Depenecy ? Give Ways
+Which Design Pattern you have used ?
+What is Repository Design Pattern ? 
+Have you implemented IdentityServer4 ? 
+What is JWT token ? 
+asking between some difference in RabitMq -- not remember the words
+What is DDD(Domain Driven Design)?
