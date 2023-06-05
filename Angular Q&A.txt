@@ -505,5 +505,49 @@ It can be defined as a smooth approach for enhancing user experience by loading 
 
 Angular 14 Features :: 
 Standalone components, directives, and pipes
-Typed Angular forms
+Typed Angular forms : In the concept of typed form we have the property name and its data type defined
 Streamlined page title accessibility
+
+--------------------------------------------------------------------------------------
+
+What is a observable in Angular? ::
+Angular makes use of observables as an interface to handle a variety of common asynchronous operations.
+
+Observables provide support for passing messages between parts of your application. 
+They are used frequently in Angular and are a technique for event handling, asynchronous programming, and handling multiple values.
+
+--------------------------------------------------------------------------------------
+
+The RxJS (Reactive Extensions Library for JavaScript) is a javascript library, that allows us to work with asynchronous data streams
+
+--------------------------------------------------------------------------------------
+
+What is observable vs promise in Angular? ::
+
+Both observables and promises help us work with asynchronous functionality in JavaScript. Promises deal with one asynchronous event at a time, while observables handle a sequence of asynchronous events over a period of time.
+
+--------------------------------------------------------------------------------------
+
+pipe() in RxJS::
+You can use pipes to link operators together. 
+Pipes let you combine multiple functions into a single function.
+
+The pipe() function takes as its arguments the functions you want to combine, and returns a new function that, when executed, runs the composed functions in sequence.
+
+const source$: Observable<number> = range(0, 10);
+
+source$.pipe(
+    map(x => x * 2),
+    filter(x => x % 3 === 0)
+).subscribe(x => console.log(x));
+
+o/p ::
+0
+6
+12
+18
+---------------------------
+The subscribe() method calls the observable's function that produces and emits data. 
+Thus, subscribing to an observable starts a flow of data between the observable and the observer.
+---------------------------
+map() function ::  The map() function expects a callback as the argument and executes it once for each element in the array.
