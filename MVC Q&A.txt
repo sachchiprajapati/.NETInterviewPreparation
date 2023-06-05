@@ -301,5 +301,13 @@ Behavioral Design Patterns ::
 Unit Test Boilerplate Generator
 
 https://marketplace.visualstudio.com/items?itemName=RandomEngy.UnitTestBoilerplateGenerator	
+------------------------------------------------------------------------------------------		
+	
+Difference between IApplicationBuilder.Use() and IApplicationBuilder.Run()? ::
+
+We can use both the methods in Configure methods of the startup class. 
+Both are used to add middleware delegates to the application request pipeline. 
+The middleware adds using IApplicationBuilder.Use() may call the next middleware in the pipeline whereas the middleware adds using IApplicationBuilder.
+The run method never calls the subsequent middleware. After IApplicationBuilder.Run() method, system stop adding middleware in the request pipeline.	
 	
 	
