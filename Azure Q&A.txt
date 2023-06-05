@@ -15,11 +15,28 @@ Application Insights ::
 	and monitoring for live web apps. 
 
 Azure Service Bus ::	
-	Azure Service Bus is a messaging service on cloud used to connect any applications, devices, and services running in the cloud to any other applications or services.	
+	Azure Service Bus is a messaging service on cloud used to connect any applications, devices, and services running in the cloud to 
+	any other applications or services.	
+	
+What is the difference between queue and topic in Service Bus?
+	A queue allows processing of a message by a single consumer. 
+	In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a publish and subscribe pattern. 
+	It's useful for scaling to large numbers of recipients.
+
+	
+Azure Service Bus pub/sub - Receive vs Peek ::
+	
+    Peek: This method enables you to view messages without locking or receiving them.
+    Receive: Can work in 2 modes: PeekLock (receives the message but keeps it peek-locked until the receiver abandons the message. 
+			The maximum timeout is 5 minutes before message expiration) and 
+			ReceiveAndDelete (deletes the message after it is received).
+	PeakLock is the default.
+	
 	
 Azure Event Grid ::
 	Event Grid is a highly scalable, serverless event broker that you can use to integrate applications using events. 
-	Events are delivered by Event Grid to subscriber destinations such as applications, Azure services, or any endpoint to which Event Grid has network access. The source of those events can be other applications, SaaS services and Azure services. 
+	Events are delivered by Event Grid to subscriber destinations such as applications, Azure services, or any endpoint to which Event 
+	Grid has network access. The source of those events can be other applications, SaaS services and Azure services. 
 	
 	Five concepts in Azure Event Grid :   
 		Events - What happened. 			
@@ -29,11 +46,17 @@ Azure Event Grid ::
 		Event handlers - The app or service reacting to the event.  			
 
 What is Snowflake used for? ::
-	Snowflake is a cloud data warehouse that can store and analyze all your data records in one place. It can automatically scale up/down its compute resources to load, integrate, and analyze data.	
+	Snowflake is a cloud data warehouse that can store and analyze all your data records in one place. It can automatically 
+	scale up/down its compute resources to load, integrate, and analyze data.	
 
-	Snowflake is a fully managed SaaS (software as a service) that provides a single platform for data warehousing, data lakes, data engineering, data science, data application development, and secure sharing and consumption of real-time/shared data.
+	Snowflake is a fully managed SaaS (software as a service) that provides a single platform for data warehousing, data lakes, 
+	data engineering, data science, data application development, and secure sharing and consumption of real-time/shared data.
 
 	Snowflake is a cloud data platform for data storage and analytics purpose. 
 	
+	Snowflake uses highly scalable and secure cloud storage to store structured and semi-structured data like JSON, AVRO, and Parquet.
+	
 Azure AKS ::
-	Azure Kubernetes Service (AKS) offers the quickest way to start developing and deploying cloud-native apps in Azure, datacenters, or at the edge with built-in code-to-cloud pipelines and guardrails. Get unified management and governance for on-premises, edge, and multicloud Kubernetes clusters.		
+	Azure Kubernetes Service (AKS) offers the quickest way to start developing and deploying cloud-native apps in Azure, datacenters, 
+	or at the edge with built-in code-to-cloud pipelines and guardrails. Get unified management and governance for on-premises, edge, 
+	and multicloud Kubernetes clusters.	
