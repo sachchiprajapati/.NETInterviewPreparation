@@ -2,12 +2,15 @@
 
 My Self Sachchi Prajapati 
 
-I have completed my Bachelor of Engineering in Computer Engineering
+I have done my Bachelor of Engineering in Computer Engineering
 
-I'm having around 7.4 years of experience into .net profile.
-So basically I have work with .net mvc, .net core, Web API, SQL Server, Linq, Entity Framework, jquery, ajax
-Also work wih Azure srvices like Azure function app, logic app, storage account, application insight ,knowledge of CI/CD
-knowledge of Angular 
+I'm having 8+ years of experience into .net profile.
+
+So basically I have work with .net mvc, .net core, .net core API, Entity Framework, Linq
+At database side I have work with SQL server and My SQL
+At Front end technology, I have work with Angular, HTML, CSS, Bootstrap, jquery, ajax
+I'm familiar and experienced with azure devops. 
+I have also work in various Azure services like Azure function app, logic app, storage account, app service, application insight , key vault and knowledge of CI/CD pipeline
 
 project :: explain any project (Furniture Home Store)
 
